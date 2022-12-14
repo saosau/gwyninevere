@@ -60,9 +60,8 @@ You pass the ball to find them! You pass the ball because they jump!</descriptio
         <pubDate>Sun, 02 Oct 2022 17:31:00 +0200</pubDate>
         
         <guid>http://gwyninevere.com/posts/compsci/reload-file-listing/</guid>
-        <description>&lt;p&gt;After long period of usage, there was one thing that kept me
-uncomfortable. Sometimes we want to work on just one directory or have
-files listed in a certain way.&lt;/p&gt;</description>
+        <description>After long period of usage, there was one thing that kept me uncomfortable. Sometimes we want to work on just one directory or have files listed in a certain way. It is&amp;hellip; fairly easy to implement that.
+find_a=&amp;#34;~:change-prompt(&amp;gt; )+reload&amp;#34;` `&amp;#34;(find -L . ! -path &amp;#39;*/.*&amp;#39; | sed &amp;#39;s|\\./||&amp;#39;)&amp;#34; find_1=&amp;#34;@:change-prompt(d1&amp;gt; )+reload&amp;#34;` `&amp;#34;(find -L . ! -path &amp;#39;*/.*&amp;#39; -mindepth 1 -maxdepth 1 | &amp;#34;` `&amp;#34;sed &amp;#39;s|\\./||&amp;#39;)&amp;#34; find_2=&amp;#34;#:change-prompt(d2&amp;gt; )+reload&amp;#34;` `&amp;#34;(find -L . ! -path &amp;#39;*/.</description>
       </item>
       
     

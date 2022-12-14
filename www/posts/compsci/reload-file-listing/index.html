@@ -66,7 +66,7 @@
 
 
 
-<link rel="stylesheet" href="/css/main.min.e81d8829741d50604117eb3d2fe499979128cad8722d151bc7f4a7875d05f428.css" integrity="sha256-6B2IKXQdUGBBF&#43;s9L&#43;SZl5EoythyLRUbx/Snh10F9Cg=" crossorigin="anonymous" media="screen">
+<link rel="stylesheet" href="/css/main.min.3cf97dd48e47166c0e29435ddca5c65cf80f8c473b882e1c59c33d992626252f.css" integrity="sha256-PPl91I5HFmwOKUNd3KXGXPgPjEc7iC4cWcM9mSYmJS8=" crossorigin="anonymous" media="screen">
 
 
 
@@ -84,14 +84,12 @@
 <meta name="twitter:image" content="http://gwyninevere.com/gwyn.png"/>
 
 <meta name="twitter:title" content="Reload File Listing"/>
-<meta name="twitter:description" content="After long period of usage, there was one thing that kept me
-uncomfortable. Sometimes we want to work on just one directory or have
-files listed in a certain way."/>
+<meta name="twitter:description" content="After long period of usage, there was one thing that kept me uncomfortable. Sometimes we want to work on just one directory or have files listed in a certain way. It is&hellip; fairly easy to implement that.
+find_a=&#34;~:change-prompt(&gt; )&#43;reload&#34;` `&#34;(find -L . ! -path &#39;*/.*&#39; | sed &#39;s|\\./||&#39;)&#34; find_1=&#34;@:change-prompt(d1&gt; )&#43;reload&#34;` `&#34;(find -L . ! -path &#39;*/.*&#39; -mindepth 1 -maxdepth 1 | &#34;` `&#34;sed &#39;s|\\./||&#39;)&#34; find_2=&#34;#:change-prompt(d2&gt; )&#43;reload&#34;` `&#34;(find -L . ! -path &#39;*/."/>
 
 <meta property="og:title" content="Reload File Listing" />
-<meta property="og:description" content="After long period of usage, there was one thing that kept me
-uncomfortable. Sometimes we want to work on just one directory or have
-files listed in a certain way." />
+<meta property="og:description" content="After long period of usage, there was one thing that kept me uncomfortable. Sometimes we want to work on just one directory or have files listed in a certain way. It is&hellip; fairly easy to implement that.
+find_a=&#34;~:change-prompt(&gt; )&#43;reload&#34;` `&#34;(find -L . ! -path &#39;*/.*&#39; | sed &#39;s|\\./||&#39;)&#34; find_1=&#34;@:change-prompt(d1&gt; )&#43;reload&#34;` `&#34;(find -L . ! -path &#39;*/.*&#39; -mindepth 1 -maxdepth 1 | &#34;` `&#34;sed &#39;s|\\./||&#39;)&#34; find_2=&#34;#:change-prompt(d2&gt; )&#43;reload&#34;` `&#34;(find -L . ! -path &#39;*/." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://gwyninevere.com/posts/compsci/reload-file-listing/" /><meta property="og:image" content="http://gwyninevere.com/gwyn.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-10-02T17:31:00+02:00" />
@@ -128,10 +126,13 @@ files listed in a certain way." />
     <article role="article">
         <p>After long period of usage, there was one thing that kept me
 uncomfortable. Sometimes we want to work on just one directory or have
-files listed in a certain way.</p>
+files listed in a certain way.
+
+
+
 <img src="/pix/fzf-toggle-depth0.jpg">
 
-
+</p>
 <p>It is&hellip; fairly easy to implement that.</p>
 <div class="highlight"><pre tabindex="0" style="color:#8a8a8a;background-color:#1c1c1c;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#0087ff">find_a</span>=<span style="color:#00afaf">&#34;~:change-prompt(&gt; )+reload&#34;</span><span style="color:#4e4e4e">`</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#4e4e4e">`</span><span style="color:#00afaf">&#34;(find -L . ! -path &#39;*/.*&#39; | sed &#39;s|\\./||&#39;)&#34;</span>
@@ -149,6 +150,7 @@ files listed in a certain way.</p>
 </span></span><span style="display:flex;"><span>fzf <span style="color:#00afaf">&#34;--bind=</span><span style="color:#0087ff">$find_a</span><span style="color:#00afaf">,</span><span style="color:#0087ff">$find_1</span><span style="color:#00afaf">,</span><span style="color:#0087ff">$find_2</span><span style="color:#00afaf">,</span><span style="color:#0087ff">$find_3</span><span style="color:#00afaf">,</span><span style="color:#0087ff">$find_s</span><span style="color:#00afaf">&#34;</span>
 </span></span></code></pre></div><p>Because <em>usually</em> all of the files have extensions, you can filter
 directories by adding <code>!.</code> to query. For files we do contrary, <code>.</code> .</p>
+
     </article>
 </div>
 
