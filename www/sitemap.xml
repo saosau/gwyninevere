@@ -2,11 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://gwyninevere.com/linux/fzf/</loc>
-    <lastmod>2022-08-27T16:42:19+00:00</lastmod>
-  </url><url>
     <loc>http://gwyninevere.com/</loc>
-    <lastmod>2022-08-27T16:42:19+00:00</lastmod>
+    <lastmod>2022-12-14T22:57:21+01:00</lastmod>
+  </url><url>
+    <loc>http://gwyninevere.com/posts/compsci/if-your-school-runs-computers-on-linux/</loc>
+    <lastmod>2022-12-14T22:57:21+01:00</lastmod>
+  </url><url>
+    <loc>http://gwyninevere.com/linux/os/</loc>
+    <lastmod>2022-12-13T16:42:19+00:00</lastmod>
   </url><url>
     <loc>http://gwyninevere.com/posts/compsci/</loc>
     <lastmod>2022-07-31T18:12:18+00:00</lastmod>
@@ -20,11 +23,8 @@
     <loc>http://gwyninevere.com/releases/</loc>
     <lastmod>2022-07-31T18:12:18+00:00</lastmod>
   </url><url>
-    <loc>http://gwyninevere.com/linux/nginx/</loc>
-    <lastmod>2022-01-22T11:10:48+02:00</lastmod>
-  </url><url>
     <loc>http://gwyninevere.com/about/</loc>
-    <lastmod>2020-07-31T12:21:57-05:00</lastmod>
+    <lastmod>2022-07-31T12:21:57-05:00</lastmod>
   </url><url>
     <loc>http://gwyninevere.com/terms/</loc>
   </url>

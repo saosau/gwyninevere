@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+
+
+
+
+    
+
+
+
+
+
+
+    
+    
+
+
+
+    
+    
+    
+
+
+
+
+
+<style>
+    html {
+      background:
+          linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+          url(/bg/compsci.jpg),
+          #111;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+</style>
+
+
+
+<head>
+    
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="Mostly about computers.">
+<title>
+    If Your School Runs Computers on Linux - Gwyninevere
+</title>
+
+
+<link rel="shortcut icon" href="/gwyninevere.ico">
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.min.3cf97dd48e47166c0e29435ddca5c65cf80f8c473b882e1c59c33d992626252f.css" integrity="sha256-PPl91I5HFmwOKUNd3KXGXPgPjEc7iC4cWcM9mSYmJS8=" crossorigin="anonymous" media="screen">
+
+
+
+
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Didact+Gothic">
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://gwyninevere.com/gwyn.png"/>
+
+<meta name="twitter:title" content="If Your School Runs Computers on Linux"/>
+<meta name="twitter:description" content="Once I had some time to spare, I decided to spend it on hacking the
+computers in our school laboratories. While happiness would take over
+me after I succesfully connected my laptop to eduroam via
+wpa_supplicant , I began to consider installing dwm without sudo."/>
+
+<meta property="og:title" content="If Your School Runs Computers on Linux" />
+<meta property="og:description" content="Once I had some time to spare, I decided to spend it on hacking the
+computers in our school laboratories. While happiness would take over
+me after I succesfully connected my laptop to eduroam via
+wpa_supplicant , I began to consider installing dwm without sudo." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://gwyninevere.com/posts/compsci/if-your-school-runs-computers-on-linux/" /><meta property="og:image" content="http://gwyninevere.com/gwyn.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-12-14T22:57:21+01:00" />
+<meta property="article:modified_time" content="2022-12-14T22:57:21+01:00" /><meta property="og:site_name" content="Gwyninevere" />
+
+
+
+    
+
+    
+    
+    
+    <title>
+        
+        If Your School Runs Computers on Linux
+        
+    </title>
+</head>
+
+<body>
+    
+    
+    <header class="wrap flex-container">
+        <h1>If Your School Runs Computers on Linux</h1>
+    </header>
+    
+    <main class="wrap">
+        
+<div class="flex-container">
+    <aside role="complementary">
+        Wed Dec 14, 2022 &#183; 426 words
+    </aside>
+    <hr />
+    <article role="article">
+        <p>Once I had some time to spare, I decided to spend it on hacking the
+computers in our school laboratories. While happiness would take over
+me after I succesfully connected my laptop to eduroam via
+<code>wpa_supplicant</code> , I began to consider installing dwm without sudo.</p>
+<h2 id="creating-a-local-repository" class="anchor-link"><a href="#creating-a-local-repository">Creating a local repository<span class="pilcrow">&nbsp;¶</span></a></h2>
+<p>The school computers run Debian, so it was hella long since I have used
+apt. I would use these commands most frequently:</p>
+<div class="highlight"><pre tabindex="0" style="color:#8a8a8a;background-color:#1c1c1c;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>apt-cache search [package] <span style="color:#4e4e4e"># search packages</span>
+</span></span><span style="display:flex;"><span>apt-get <span style="color:#0087ff">source</span> [package] <span style="color:#4e4e4e"># fetch package source</span>
+</span></span></code></pre></div><p>which was pretty nice, because the package versions were compatible with
+current Debian release. Source packages usually have a <em>configure script</em>,
+with which you can easily set compile flags just like Gentoo USE flags.
+To have everything installed in your local repository just add the flag:
+<code>--prefix=[directory]</code> .</p>
+
+<h2 id="compiling-source-code" class="anchor-link"><a href="#compiling-source-code">Compiling source code<span class="pilcrow">&nbsp;¶</span></a></h2>
+<p>Honestly, it quickly turned into a mundane work, because of dependencies.
+<em>dwm</em> depends on X11 libraries, of which I had libXft and libxinerama
+missing. libXft depends on libxrender, freetype and fontconfig, moreover
+each one of them required either another library or a build time
+dependency. Usually pkg-config does the work with CFLAGS/LDFLAGS, but
+sometimes I had to go so far to edit pkg-config files themselves. You
+usually: 1) include libraries with <code>-I[directory]</code> , 2) link libraries
+with <code>-L[directory]</code> . Obviously, I worked this out by writing an <code>lmao.c</code>
+file that included local libraries.</p>
+<p>I had times where I wanted to give up, but in actuality I just went to WC
+to wash my face and continued my suffering. After some time I managed to
+get it all going, once I set it up finally dwm appeared. I couldn&rsquo;t
+contain it anymore, so I left the room to forget that I have done it. With
+thus achieved experience I installed feh as well for my dwm background.
+It was an easy run since it was also written in C, with things ready I
+found a pretty cool Dark Souls vector wallpaper.</p>
+<p>[insert photo here]</p>
+<p>I would say it goes beyond both Arch and Gentoo, once you delve into it,
+you start to notice the genius behind these distributions. Well, it works
+like a domino: Arch -&gt; Gentoo -&gt; compile it yourself you donkey! Then
+there&rsquo;s this thought: &ldquo;How about I get this/that?&rdquo;, but honestly the
+school is for study, so watching TV series isn&rsquo;t such a good idea. I
+nodded to myself that I will get anki and taskwarrior as well, but the
+rest really comes out as unnecessary bloat. I hope my coursemates don&rsquo;t
+copycat me and stay with their xfce!</p>
+    </article>
+</div>
+
+
+        
+        
+        <nav role="navigation" class="flex-container bottom-menu">
+            
+<hr />
+
+
+<p>
+    
+        
+            <a href="/about">whois</a>
+        
+    
+    
+    
+        
+            &#183; 
+            <a href="/posts">posts</a>
+        
+            &#183; 
+            <a href="/releases">releases</a>
+        
+            &#183; 
+            <a href="/linux">linux</a>
+        
+    
+    
+    
+        &#183; 
+        <a href="/">
+            main</a>
+    
+</p>
+
+        </nav>
+        
+        
+    </main>
+    
+    <footer class="flex-container footer">
+        
+
+    </footer>
+    
+    
+</body>
+
+</html>
