@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gwyninevere</title>
+    <link>http://gwyninevere.com/</link>
+    <description>Recent content on Gwyninevere</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 05 Nov 2022 11:40:09 +0200</lastBuildDate><atom:link href="http://gwyninevere.com/rss.xml" rel="self" type="application/rss+xml" />
+      
+      <item>
+        <title>Newsboat: Aggregate Notifications to a Single Application</title>
+        <link>http://gwyninevere.com/posts/compsci/newsboat-aggregate-notifications-to-a-single-application/</link>
+        <pubDate>Sat, 05 Nov 2022 11:40:09 +0200</pubDate>
+        
+        <guid>http://gwyninevere.com/posts/compsci/newsboat-aggregate-notifications-to-a-single-application/</guid>
+        <description>I always cursed various social media for stealing my quality time. The only way to prevent timewaste was to quit completely. Even so, there were services that were necessary for me. Nevertheless no matter what, the cons would take over the pros.
+One day while browsing linux content, I found articles on RSS feeds. At first it felt very counterintuitive. Subscribe to a Youtube channel - get Youtube feed. Follow someone on Twitter - get Twitter feed.</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>Check Status and Pull from All Git Repositories</title>
+        <link>http://gwyninevere.com/posts/compsci/check-status-and-pull-from-all-git-repositories/</link>
+        <pubDate>Sun, 30 Oct 2022 02:09:40 +0000</pubDate>
+        
+        <guid>http://gwyninevere.com/posts/compsci/check-status-and-pull-from-all-git-repositories/</guid>
+        <description>It has been a huge problem for me lately, I seem to diverge all the git repositories I work on. It is mainly because I provide changes from multiple devices and I forget to pull first. If you think carefully, it is not too hard to find a solution. Let me quote the well-known football manager Pep Guardiola:
+You pass the ball to find them! You pass the ball because they jump!</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>Changing Your Default Login Shell to Zsh</title>
+        <link>http://gwyninevere.com/posts/compsci/changing-your-default-login-shell-to-zsh/</link>
+        <pubDate>Sat, 22 Oct 2022 00:32:13 +0200</pubDate>
+        
+        <guid>http://gwyninevere.com/posts/compsci/changing-your-default-login-shell-to-zsh/</guid>
+        <description>Since we went over choosing a POSIX shell, now it is time we looked into interactive shells that greet us every morning. The three very often mentioned shells are Bash, Zsh and Fish. I adapted to Zsh fairly quickly, mainly because it was POSIX compliant, zshrc is basically a copy of my bashrc. Fish is an entirely different shell that needs learning new syntax. I am not fond of it, but it should not stop you in any way.</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>Avoiding Bashisms in Your Shell Scripts</title>
+        <link>http://gwyninevere.com/posts/compsci/avoiding-bashisms-in-your-shell-scripts/</link>
+        <pubDate>Sun, 16 Oct 2022 17:26:43 +0000</pubDate>
+        
+        <guid>http://gwyninevere.com/posts/compsci/avoiding-bashisms-in-your-shell-scripts/</guid>
+        <description>When we say bashism, it does not neccessarily mean it came from Bash. I refer it to as such, because majority have Bash as their default interpreters. So, in a way, it is kind of an oversimplification from me. And as such, this post is more Bash-centric. Meaning of being POSIX compliant&amp;nbsp;¶ POSIX is a set of standards specified by IEEE. It is all about compatibility and portability. When we say Bash is POSIX compliant, it means that Bash can read with no problem a POSIX compliant script.</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>Reload File Listing</title>
+        <link>http://gwyninevere.com/posts/compsci/reload-file-listing/</link>
+        <pubDate>Sun, 02 Oct 2022 17:31:00 +0200</pubDate>
+        
+        <guid>http://gwyninevere.com/posts/compsci/reload-file-listing/</guid>
+        <description>&lt;p&gt;After long period of usage, there was one thing that kept me
+uncomfortable. Sometimes we want to work on just one directory or have
+files listed in a certain way.&lt;/p&gt;</description>
+      </item>
+      
+    
+      
+    
+      
+    
+      
+      <item>
+        <title>Conveniently Bulk Rename Files</title>
+        <link>http://gwyninevere.com/posts/compsci/conveniently-bulk-rename-files/</link>
+        <pubDate>Sat, 24 Sep 2022 08:53:10 +0200</pubDate>
+        
+        <guid>http://gwyninevere.com/posts/compsci/conveniently-bulk-rename-files/</guid>
+        <description>Then you think, hey do I want to rename all these files one by one? I might just use fzf to rename them all in one go. Or so is what I thought. Save files to be renamed to a text file&amp;nbsp;¶ With vim you can easily number or rename file in stacks, it makes it also easy to rename files one at a time. For that reason, we are saving fzf output to a file.</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>Execute Files with Any File Manager</title>
+        <link>http://gwyninevere.com/posts/compsci/execute-files-with-your-custom-file-manager/</link>
+        <pubDate>Sun, 18 Sep 2022 16:06:26 +0200</pubDate>
+        
+        <guid>http://gwyninevere.com/posts/compsci/execute-files-with-your-custom-file-manager/</guid>
+        <description>&lt;p&gt;Simple switch case. For text files vim, for pdfs zathura, though, do
+we really want to open different mpv players to play tracks?&lt;/p&gt;</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>Preview Videos and PDF Documents</title>
+        <link>http://gwyninevere.com/posts/compsci/preview-videos-and-pdfs-documents/</link>
+        <pubDate>Sat, 10 Sep 2022 15:25:31 +0200</pubDate>
+        
+        <guid>http://gwyninevere.com/posts/compsci/preview-videos-and-pdfs-documents/</guid>
+        <description>&lt;p&gt;Previewing images is nice, but mp4s, pdfs, they all still show me
+nothing. But there is a way we can picture a video, right?  A thumbnail.&lt;/p&gt;</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>Show Image Previews Like File Managers</title>
+        <link>http://gwyninevere.com/posts/compsci/show-image-previews-like-file-managers/</link>
+        <pubDate>Sun, 04 Sep 2022 11:11:46 +0200</pubDate>
+        
+        <guid>http://gwyninevere.com/posts/compsci/show-image-previews-like-file-managers/</guid>
+        <description>&lt;p&gt;Sure, previewing directories and text files is kind of cool, but what
+about files that you cannot just output to STDOUT? I am talking images.
+Well, I would not check out ueberzug if not for this idea.&lt;/p&gt;</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>Move/Copy Files from Multiple Directories</title>
+        <link>http://gwyninevere.com/posts/compsci/move-copy-files-from-multiple-directories/</link>
+        <pubDate>Sat, 27 Aug 2022 14:04:24 +0200</pubDate>
+        
+        <guid>http://gwyninevere.com/posts/compsci/move-copy-files-from-multiple-directories/</guid>
+        <description>&lt;p&gt;Now that we can change directories easily, a lot of things got faster.
+But what if our command involves two different directories? What if we
+could put all the files to a truck and then deposit it to one directory?
+I present you fzf, the trash truck.&lt;/p&gt;</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>Fzf: Fuzzy Search through Your Files</title>
+        <link>http://gwyninevere.com/posts/compsci/fzf-fuzzy-search-through-your-files/</link>
+        <pubDate>Sun, 21 Aug 2022 00:00:00 +0000</pubDate>
+        
+        <guid>http://gwyninevere.com/posts/compsci/fzf-fuzzy-search-through-your-files/</guid>
+        <description>&lt;p&gt;After spending much time on the linux terminal, we find crawling
+directory trees very tiring. In a way it resembles being a spider.
+Fzf fuzzes the directory webs, so that even distant branches can be
+reachable from any point you wanted.&lt;/p&gt;</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>Ueberzug: Draw Images on a Terminal Emulator</title>
+        <link>http://gwyninevere.com/posts/compsci/ueberzug-draw-images-on-a-terminal-emulator/</link>
+        <pubDate>Sat, 13 Aug 2022 12:20:48 +0200</pubDate>
+        
+        <guid>http://gwyninevere.com/posts/compsci/ueberzug-draw-images-on-a-terminal-emulator/</guid>
+        <description>&lt;p&gt;Before we start thinking about previewing images. we need to consider
+whether displaying images on a terminal is even possible.
+The idea is to open a proper sized child window, that can interpret an
+image, which is why — I think so? — it is called &lt;em&gt;Überzug&lt;/em&gt;.&lt;/p&gt;</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>Setting Up Reverse Proxy for Docker Containers</title>
+        <link>http://gwyninevere.com/posts/compsci/setting-up-reverse-proxy-for-docker-containers/</link>
+        <pubDate>Sun, 07 Aug 2022 14:02:37 +0000</pubDate>
+        
+        <guid>http://gwyninevere.com/posts/compsci/setting-up-reverse-proxy-for-docker-containers/</guid>
+        <description>&lt;p&gt;What concerned me is deciding whether a container should run as root for
+often arbitrary reasons. I found that encrypting port 443 is not a good
+enough reason for several applications to run as root, so I decided it is
+best to set up a guard - proxy, that will do that task instead.&lt;/p&gt;</description>
+      </item>
+      
+    
+  </channel>
+</rss>

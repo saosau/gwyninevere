@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+
+
+
+
+    
+
+
+
+
+
+
+    
+    
+
+
+
+    
+    
+    
+        
+            
+        
+    
+
+
+
+
+
+<style>
+    html {
+      background:
+          linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+          url(/bg/fzf.jpg),
+          #111;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+</style>
+
+
+
+<head>
+    
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="Mostly about computers.">
+<title>
+    Fzf: Fuzzy Search through Your Files - Gwyninevere
+</title>
+
+
+<link rel="shortcut icon" href="/gwyninevere.ico">
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.min.e81d8829741d50604117eb3d2fe499979128cad8722d151bc7f4a7875d05f428.css" integrity="sha256-6B2IKXQdUGBBF&#43;s9L&#43;SZl5EoythyLRUbx/Snh10F9Cg=" crossorigin="anonymous" media="screen">
+
+
+
+
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Didact+Gothic">
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://gwyninevere.com/gwyn.png"/>
+
+<meta name="twitter:title" content="Fzf: Fuzzy Search through Your Files"/>
+<meta name="twitter:description" content="After spending much time on the linux terminal, we find crawling
+directory trees very tiring. In a way it resembles being a spider.
+Fzf fuzzes the directory webs, so that even distant branches can be
+reachable from any point you wanted."/>
+
+<meta property="og:title" content="Fzf: Fuzzy Search through Your Files" />
+<meta property="og:description" content="After spending much time on the linux terminal, we find crawling
+directory trees very tiring. In a way it resembles being a spider.
+Fzf fuzzes the directory webs, so that even distant branches can be
+reachable from any point you wanted." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://gwyninevere.com/posts/compsci/fzf-fuzzy-search-through-your-files/" /><meta property="og:image" content="http://gwyninevere.com/gwyn.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-08-21T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-08-21T00:00:00+00:00" /><meta property="og:site_name" content="Gwyninevere" />
+
+
+
+    
+
+    
+    
+    
+    <title>
+        
+        Fzf: Fuzzy Search through Your Files
+        
+    </title>
+</head>
+
+<body>
+    
+    
+    <header class="wrap flex-container">
+        <h1>Fzf: Fuzzy Search through Your Files</h1>
+    </header>
+    
+    <main class="wrap">
+        
+<div class="flex-container">
+    <aside role="complementary">
+        Sun Aug 21, 2022 &#183; 295 words
+    </aside>
+    <hr />
+    <article role="article">
+        <p>After spending much time on the linux terminal, we find crawling
+directory trees very tiring. In a way it resembles being a spider.
+Fzf fuzzes the directory webs, so that even distant branches can be
+reachable from any point you wanted.</p>
+<img src="/pix/minmay-blurry.jpg">
+
+
+
+<h2 id="what-we-have-out-of-the-box" class="anchor-link"><a href="#what-we-have-out-of-the-box">What we have out-of-the-box<span class="pilcrow">&nbsp;¶</span></a></h2>
+<p>Now, when we run <em>ctrl-r</em> we will have an fzf version of reverse-i-search.</p>
+
+
+
+<img src="/pix/fzf-history.png">
+
+
+<p><em>alt+c</em> is for changing the directory, <em>ctrl+t</em> is for autocompleting
+them. Emacs keybindings are here as well, you can still use <em>ctrl-f,
+ctrl-b, ctrl-a, ctrl-e, ctrl-w, ctrl-u.</em> You can also invoke fzf with
+<code>&lt;program&gt; **</code> and pressing tab. One handy trick is <code>ssh **</code>. Built-in
+features are documented in the repository.</p>
+
+<h2 id="changing-into-any-directory-from-home-directory" class="anchor-link"><a href="#changing-into-any-directory-from-home-directory">Changing into any directory from home directory<span class="pilcrow">&nbsp;¶</span></a></h2>
+<p>First, we need a directory listing. <em>find</em> is a good tool for this.
+We can omit hidden directories with a simple regex <code>*/.*</code> .</p>
+<div class="highlight"><pre tabindex="0" style="color:#8a8a8a;background-color:#1c1c1c;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>find -L <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$HOME</span><span style="color:#00afaf">&#34;</span> ! -path <span style="color:#00afaf">&#39;*/.*&#39;</span> -type d | fzf <span style="color:#4e4e4e"># voila</span>
+</span></span></code></pre></div><p>Now, we could do this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#8a8a8a;background-color:#1c1c1c;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#0087ff">cd</span> <span style="color:#5f8700">$(</span>find -L <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$HOME</span><span style="color:#00afaf">&#34;</span> ! -path <span style="color:#00afaf">&#39;*/.*&#39;</span> -type d | fzf<span style="color:#5f8700">)</span>
+</span></span></code></pre></div><p>But then if you decide to abort fzf, the command ran is <code>cd</code> .</p>
+
+<h2 id="preview-while-fuzzy-searching" class="anchor-link"><a href="#preview-while-fuzzy-searching">Preview while fuzzy searching<span class="pilcrow">&nbsp;¶</span></a></h2>
+<p>This is one of the neatest functionalities of fzf. Right from <code>man fzf</code>:</p>
+<pre tabindex="0"><code>--preview=COMMAND
+  Execute the given command for the current line and display the re‐
+  sult  on  the preview window. {} in the command is the placeholder
+  that is replaced to the single-quoted string of the current  line.
+  To  transform  the replacement string, specify field index expres‐
+  sions between the braces (See FIELD INDEX EXPRESSION for  the  de‐
+  tails).
+</code></pre>
+<h2 id="example-of-a-script-file" class="anchor-link"><a href="#example-of-a-script-file">Example of a script file<span class="pilcrow">&nbsp;¶</span></a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#8a8a8a;background-color:#1c1c1c;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#5f8700">#!/bin/sh
+</span></span></span><span style="display:flex;"><span><span style="color:#5f8700"></span><span style="color:#0087ff">tree</span>=<span style="color:#00afaf">&#39;tree -L 1 --dirsfirst -p -u -C {}&#39;</span> <span style="color:#4e4e4e"># st-hcd</span>
+</span></span><span style="display:flex;"><span><span style="color:#0087ff">dir</span>=<span style="color:#5f8700">$(</span>find -L <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$HOME</span><span style="color:#00afaf">&#34;</span> ! -path <span style="color:#00afaf">&#39;*/.*&#39;</span> -type d |
+</span></span><span style="display:flex;"><span>        fzf -e --height 99% --preview <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$tree</span><span style="color:#00afaf">&#34;</span><span style="color:#5f8700">)</span>
+</span></span><span style="display:flex;"><span>[ <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$dir</span><span style="color:#00afaf">&#34;</span> ] &amp;&amp; <span style="color:#0087ff">cd</span> <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$dir</span><span style="color:#00afaf">&#34;</span> &amp;&amp; ls
+</span></span></code></pre></div>
+    </article>
+</div>
+
+
+        
+        
+        <nav role="navigation" class="flex-container bottom-menu">
+            
+<hr />
+
+
+<p>
+    
+        
+            <a href="/about">whois</a>
+        
+    
+    
+    
+        
+            &#183; 
+            <a href="/posts">posts</a>
+        
+            &#183; 
+            <a href="/releases">releases</a>
+        
+            &#183; 
+            <a href="/linux">linux</a>
+        
+    
+    
+    
+        &#183; 
+        <a href="/">
+            main</a>
+    
+</p>
+
+        </nav>
+        
+        
+    </main>
+    
+    <footer class="flex-container footer">
+        
+
+    </footer>
+    
+    
+</body>
+
+</html>

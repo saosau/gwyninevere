@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+
+
+
+
+    
+
+
+
+
+
+
+    
+    
+
+
+
+    
+    
+    
+        
+    
+
+
+
+
+
+<style>
+    html {
+      background:
+          linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+          url(/bg/compsci.jpg),
+          #111;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+</style>
+
+
+
+<head>
+    
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="Mostly about computers.">
+<title>
+    Check Status and Pull from All Git Repositories - Gwyninevere
+</title>
+
+
+<link rel="shortcut icon" href="/gwyninevere.ico">
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.min.e81d8829741d50604117eb3d2fe499979128cad8722d151bc7f4a7875d05f428.css" integrity="sha256-6B2IKXQdUGBBF&#43;s9L&#43;SZl5EoythyLRUbx/Snh10F9Cg=" crossorigin="anonymous" media="screen">
+
+
+
+
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Didact+Gothic">
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://gwyninevere.com/gwyn.png"/>
+
+<meta name="twitter:title" content="Check Status and Pull from All Git Repositories"/>
+<meta name="twitter:description" content="It has been a huge problem for me lately, I seem to diverge all the git repositories I work on. It is mainly because I provide changes from multiple devices and I forget to pull first. If you think carefully, it is not too hard to find a solution. Let me quote the well-known football manager Pep Guardiola:
+You pass the ball to find them! You pass the ball because they jump!"/>
+
+<meta property="og:title" content="Check Status and Pull from All Git Repositories" />
+<meta property="og:description" content="It has been a huge problem for me lately, I seem to diverge all the git repositories I work on. It is mainly because I provide changes from multiple devices and I forget to pull first. If you think carefully, it is not too hard to find a solution. Let me quote the well-known football manager Pep Guardiola:
+You pass the ball to find them! You pass the ball because they jump!" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://gwyninevere.com/posts/compsci/check-status-and-pull-from-all-git-repositories/" /><meta property="og:image" content="http://gwyninevere.com/gwyn.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-10-30T02:09:40+00:00" />
+<meta property="article:modified_time" content="2022-10-30T02:09:40+00:00" /><meta property="og:site_name" content="Gwyninevere" />
+
+
+
+    
+
+    
+    
+    
+    <title>
+        
+        Check Status and Pull from All Git Repositories
+        
+    </title>
+</head>
+
+<body>
+    
+    
+    <header class="wrap flex-container">
+        <h1>Check Status and Pull from All Git Repositories</h1>
+    </header>
+    
+    <main class="wrap">
+        
+<div class="flex-container">
+    <aside role="complementary">
+        Sun Oct 30, 2022 &#183; 319 words
+    </aside>
+    <hr />
+    <article role="article">
+        <p>It has been a huge problem for me lately, I seem to diverge all the
+git repositories I work on. It is mainly because I provide changes
+from multiple devices and I forget to pull first. If you think carefully,
+it is not too hard to find a solution. Let me quote the well-known
+football manager Pep Guardiola:</p>
+
+
+
+<img src="/pix/pep-guardiola.jpg">
+
+
+<p><em>You pass the ball to find them! You pass the ball because they jump!
+And when they jump, the space is there. They don&rsquo;t jump? You&rsquo;re alone.
+Turn, go, commit, commit, commit. They don&rsquo;t commit? Why do you have to
+commit? Because they jump.</em></p>
+
+<h2 id="listing-all-git-repositories" class="anchor-link"><a href="#listing-all-git-repositories">Listing all git repositories<span class="pilcrow">&nbsp;¶</span></a></h2>
+<p>Let us look for all instances of .git directories:</p>
+<div class="highlight"><pre tabindex="0" style="color:#8a8a8a;background-color:#1c1c1c;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>find ~ -path <span style="color:#00afaf">&#34;*/.git&#34;</span>
+</span></span></code></pre></div><pre tabindex="0"><code>/home/nintendo/Build/vim/.git
+/home/nintendo/Build/st/.git
+/home/nintendo/Build/dwm/.git
+/home/nintendo/Build/dmenu/.git
+/home/nintendo/.config/.git
+</code></pre><p>This is fine, but we do want the roots of repositories. I always get
+excited when it is time to use sed:</p>
+<div class="highlight"><pre tabindex="0" style="color:#8a8a8a;background-color:#1c1c1c;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>find ~ -path <span style="color:#00afaf">&#34;*/.git&#34;</span> | sed <span style="color:#00afaf">&#39;s|/\.git$||&#39;</span>
+</span></span></code></pre></div><pre tabindex="0"><code>/home/nintendo/Build/vim
+/home/nintendo/Build/st
+/home/nintendo/Build/dwm
+/home/nintendo/Build/dmenu
+/home/nintendo/.config
+</code></pre><p>Now, I have to admit this will be very satisfying.</p>
+
+<h2 id="script-for-checking-git-repository-status" class="anchor-link"><a href="#script-for-checking-git-repository-status">Script for checking git repository status<span class="pilcrow">&nbsp;¶</span></a></h2>
+<p>I just stole this code from stackoverflow:</p>
+<div class="highlight"><pre tabindex="0" style="color:#8a8a8a;background-color:#1c1c1c;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>repo-status() {
+</span></span><span style="display:flex;"><span>  git fetch --all
+</span></span><span style="display:flex;"><span>  <span style="color:#0087ff">UPSTREAM</span>=<span style="color:#00afaf">${</span><span style="color:#0087ff">1</span><span style="color:#5f8700">:-</span><span style="color:#00afaf">&#39;@{u}&#39;</span><span style="color:#00afaf">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0087ff">LOCAL</span>=<span style="color:#5f8700">$(</span>git rev-parse @<span style="color:#5f8700">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0087ff">REMOTE</span>=<span style="color:#5f8700">$(</span>git rev-parse <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$UPSTREAM</span><span style="color:#00afaf">&#34;</span><span style="color:#5f8700">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0087ff">BASE</span>=<span style="color:#5f8700">$(</span>git merge-base @ <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$UPSTREAM</span><span style="color:#00afaf">&#34;</span><span style="color:#5f8700">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#5f8700">if</span> [ <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$LOCAL</span><span style="color:#00afaf">&#34;</span> = <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$REMOTE</span><span style="color:#00afaf">&#34;</span> ]; <span style="color:#5f8700">then</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0087ff">status</span>=ok
+</span></span><span style="display:flex;"><span>  <span style="color:#5f8700">elif</span> [ <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$LOCAL</span><span style="color:#00afaf">&#34;</span> = <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$BASE</span><span style="color:#00afaf">&#34;</span> ]; <span style="color:#5f8700">then</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0087ff">status</span>=pull
+</span></span><span style="display:flex;"><span>  <span style="color:#5f8700">elif</span> [ <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$REMOTE</span><span style="color:#00afaf">&#34;</span> = <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$BASE</span><span style="color:#00afaf">&#34;</span> ]; <span style="color:#5f8700">then</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0087ff">status</span>=push
+</span></span><span style="display:flex;"><span>  <span style="color:#5f8700">else</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0087ff">status</span>=diverged
+</span></span><span style="display:flex;"><span>  <span style="color:#5f8700">fi</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+<h2 id="finalization" class="anchor-link"><a href="#finalization">Finalization<span class="pilcrow">&nbsp;¶</span></a></h2>
+<p>The rest is pretty much self-explanatory and basic:</p>
+<div class="highlight"><pre tabindex="0" style="color:#8a8a8a;background-color:#1c1c1c;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#5f8700">#!/bin/sh
+</span></span></span><span style="display:flex;"><span><span style="color:#5f8700"></span><span style="color:#0087ff">D</span>=<span style="color:#5f8700">$(</span><span style="color:#0087ff">printf</span> <span style="color:#00afaf">&#39;\34&#39;</span><span style="color:#5f8700">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#0087ff">REPO</span>=<span style="color:#5f8700">$(</span>find ~ -path <span style="color:#00afaf">&#34;*/.git&#34;</span> | sed <span style="color:#00afaf">&#39;s|/\.git$||&#39;</span><span style="color:#5f8700">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#0087ff">oldIFS</span>=<span style="color:#0087ff">$IFS</span> <span style="color:#0087ff">IFS</span>=<span style="color:#00afaf">&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#00afaf">&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#0087ff">set</span> -- <span style="color:#0087ff">$REPO</span>
+</span></span><span style="display:flex;"><span><span style="color:#0087ff">IFS</span>=<span style="color:#0087ff">$oldIFS</span>
+</span></span><span style="display:flex;"><span><span style="color:#0087ff">diverged</span>=<span style="color:#00afaf">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#5f8700">for</span> repo in <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$@</span><span style="color:#00afaf">&#34;</span>; <span style="color:#5f8700">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0087ff">echo</span> <span style="color:#00afaf">&#34;Working on </span><span style="color:#0087ff">$repo</span><span style="color:#00afaf">...&#34;</span>; <span style="color:#0087ff">cd</span> <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$repo</span><span style="color:#00afaf">&#34;</span>
+</span></span><span style="display:flex;"><span>  repo-status
+</span></span><span style="display:flex;"><span>  <span style="color:#5f8700">case</span> <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$status</span><span style="color:#00afaf">&#34;</span> in
+</span></span><span style="display:flex;"><span>    ok) ;;
+</span></span><span style="display:flex;"><span>    pull) git pull ;;
+</span></span><span style="display:flex;"><span>    *) <span style="color:#0087ff">diverged</span>=<span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$diverged$D$repo</span><span style="color:#00afaf">&#34;</span> ;;
+</span></span><span style="display:flex;"><span>  <span style="color:#5f8700">esac</span>
+</span></span><span style="display:flex;"><span><span style="color:#5f8700">done</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#5f8700">if</span> [ -z <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$diverged</span><span style="color:#00afaf">&#34;</span> ]; <span style="color:#5f8700">then</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0087ff">echo</span> <span style="color:#00afaf">&#39;Everything is fine!&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#5f8700">else</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0087ff">echo</span> <span style="color:#00afaf">&#39;Following repositories have diverged:&#39;</span>
+</span></span><span style="display:flex;"><span>  print_array <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$diverged</span><span style="color:#00afaf">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#5f8700">fi</span>
+</span></span></code></pre></div>
+<h2 id="final-thoughts" class="anchor-link"><a href="#final-thoughts">Final thoughts<span class="pilcrow">&nbsp;¶</span></a></h2>
+<p>Ah. This brings a tear to my eye. This will assure I will not push from
+two devices simultaneously anymore.</p>
+
+
+
+<img src="/pix/pull-status.png">
+
+
+
+    </article>
+</div>
+
+
+        
+        
+        <nav role="navigation" class="flex-container bottom-menu">
+            
+<hr />
+
+
+<p>
+    
+        
+            <a href="/about">whois</a>
+        
+    
+    
+    
+        
+            &#183; 
+            <a href="/posts">posts</a>
+        
+            &#183; 
+            <a href="/releases">releases</a>
+        
+            &#183; 
+            <a href="/linux">linux</a>
+        
+    
+    
+    
+        &#183; 
+        <a href="/">
+            main</a>
+    
+</p>
+
+        </nav>
+        
+        
+    </main>
+    
+    <footer class="flex-container footer">
+        
+
+    </footer>
+    
+    
+</body>
+
+</html>

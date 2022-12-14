@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+
+
+
+
+    
+
+
+
+
+
+
+    
+    
+
+
+
+    
+    
+    
+        
+            
+        
+    
+
+
+
+
+
+<style>
+    html {
+      background:
+          linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+          url(/bg/fzf.jpg),
+          #111;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+</style>
+
+
+
+<head>
+    
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="Mostly about computers.">
+<title>
+    Conveniently Bulk Rename Files - Gwyninevere
+</title>
+
+
+<link rel="shortcut icon" href="/gwyninevere.ico">
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.min.e81d8829741d50604117eb3d2fe499979128cad8722d151bc7f4a7875d05f428.css" integrity="sha256-6B2IKXQdUGBBF&#43;s9L&#43;SZl5EoythyLRUbx/Snh10F9Cg=" crossorigin="anonymous" media="screen">
+
+
+
+
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Didact+Gothic">
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://gwyninevere.com/gwyn.png"/>
+
+<meta name="twitter:title" content="Conveniently Bulk Rename Files"/>
+<meta name="twitter:description" content="Then you think, hey do I want to rename all these files one by one? I might just use fzf to rename them all in one go. Or so is what I thought. Save files to be renamed to a text file&nbsp;¶ With vim you can easily number or rename file in stacks, it makes it also easy to rename files one at a time. For that reason, we are saving fzf output to a file."/>
+
+<meta property="og:title" content="Conveniently Bulk Rename Files" />
+<meta property="og:description" content="Then you think, hey do I want to rename all these files one by one? I might just use fzf to rename them all in one go. Or so is what I thought. Save files to be renamed to a text file&nbsp;¶ With vim you can easily number or rename file in stacks, it makes it also easy to rename files one at a time. For that reason, we are saving fzf output to a file." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://gwyninevere.com/posts/compsci/conveniently-bulk-rename-files/" /><meta property="og:image" content="http://gwyninevere.com/gwyn.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-09-24T08:53:10+02:00" />
+<meta property="article:modified_time" content="2022-09-24T08:53:10+02:00" /><meta property="og:site_name" content="Gwyninevere" />
+
+
+
+    
+
+    
+    
+    
+    <title>
+        
+        Conveniently Bulk Rename Files
+        
+    </title>
+</head>
+
+<body>
+    
+    
+    <header class="wrap flex-container">
+        <h1>Conveniently Bulk Rename Files</h1>
+    </header>
+    
+    <main class="wrap">
+        
+<div class="flex-container">
+    <aside role="complementary">
+        Sat Sep 24, 2022 &#183; 174 words
+    </aside>
+    <hr />
+    <article role="article">
+        <p>Then you think, hey do I want to rename all these files one by one?
+I might just use fzf to rename them all in one go. Or so is what I
+thought.
+
+
+
+<img src="/pix/fzf-bulkrename1.jpg">
+
+</p>
+
+<h1 id="save-files-to-be-renamed-to-a-text-file" class="anchor-link"><a href="#save-files-to-be-renamed-to-a-text-file">Save files to be renamed to a text file<span class="pilcrow">&nbsp;¶</span></a></h1>
+<p>With vim you can easily number or rename file in stacks, it makes it
+also easy to rename files one at a time. For that reason, we are saving
+fzf output to a file.</p>
+<div class="highlight"><pre tabindex="0" style="color:#8a8a8a;background-color:#1c1c1c;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#4e4e4e">## Sometimes we want to number files.</span>
+</span></span><span style="display:flex;"><span>fzf | sort &gt;<span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$CACHE</span><span style="color:#00afaf">/actual_names&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#4e4e4e">## no files to rename</span>
+</span></span><span style="display:flex;"><span>[ -s <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$CACHE</span><span style="color:#00afaf">/actual_names&#34;</span> ] || { rm <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$CACHE</span><span style="color:#00afaf">/actual_names&#34;</span>; <span style="color:#0087ff">exit</span> 1; }
+</span></span><span style="display:flex;"><span>  cp <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$CACHE</span><span style="color:#00afaf">/actual_names&#34;</span> <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$CACHE</span><span style="color:#00afaf">/post_names&#34;</span>
+</span></span><span style="display:flex;"><span>chmod <span style="color:#00afaf">444</span> <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$CACHE</span><span style="color:#00afaf">/actual_names&#34;</span> <span style="color:#4e4e4e"># does not need changes</span>
+</span></span><span style="display:flex;"><span>vim <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$CACHE</span><span style="color:#00afaf">/post_names&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#4e4e4e">## Files could have been deleted in the process.</span>
+</span></span><span style="display:flex;"><span>[ -f <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$CACHE</span><span style="color:#00afaf">/actual_names&#34;</span> -a -f <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$CACHE</span><span style="color:#00afaf">/post_names&#34;</span> ] ||
+</span></span><span style="display:flex;"><span>  { <span style="color:#0087ff">printf</span> <span style="color:#00afaf">&#39;Renaming instructions missing.\n&#39;</span>; <span style="color:#0087ff">exit</span> 1; }
+</span></span><span style="display:flex;"><span>bulkrename <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$CACHE</span><span style="color:#00afaf">/actual_names&#34;</span> <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$CACHE</span><span style="color:#00afaf">/post_names&#34;</span>
+</span></span></code></pre></div>
+<h1 id="bulk-rename-changes" class="anchor-link"><a href="#bulk-rename-changes">Bulk rename changes<span class="pilcrow">&nbsp;¶</span></a></h1>
+<div class="highlight"><pre tabindex="0" style="color:#8a8a8a;background-color:#1c1c1c;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#0087ff">D</span>=<span style="color:#5f8700">$(</span><span style="color:#0087ff">printf</span> <span style="color:#00afaf">&#39;\34&#39;</span><span style="color:#5f8700">)</span>
+</span></span><span style="display:flex;"><span>bulkrename() {
+</span></span><span style="display:flex;"><span>  <span style="color:#0087ff">oldIFS</span>=<span style="color:#0087ff">$IFS</span> <span style="color:#0087ff">IFS</span>=<span style="color:#0087ff">$D</span>
+</span></span><span style="display:flex;"><span>  paste -d<span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$D</span><span style="color:#00afaf">&#34;</span> <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$1</span><span style="color:#00afaf">&#34;</span> <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$2</span><span style="color:#00afaf">&#34;</span> |
+</span></span><span style="display:flex;"><span>    <span style="color:#5f8700">while</span> <span style="color:#0087ff">read</span> src dest; <span style="color:#5f8700">do</span>
+</span></span><span style="display:flex;"><span>      mv -bv <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$src</span><span style="color:#00afaf">&#34;</span> <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$dest</span><span style="color:#00afaf">&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#5f8700">done</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0087ff">IFS</span>=<span style="color:#0087ff">$oldIFS</span>
+</span></span><span style="display:flex;"><span>  rm -f <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$1</span><span style="color:#00afaf">&#34;</span> <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$2</span><span style="color:#00afaf">&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+    </article>
+</div>
+
+
+        
+        
+        <nav role="navigation" class="flex-container bottom-menu">
+            
+<hr />
+
+
+<p>
+    
+        
+            <a href="/about">whois</a>
+        
+    
+    
+    
+        
+            &#183; 
+            <a href="/posts">posts</a>
+        
+            &#183; 
+            <a href="/releases">releases</a>
+        
+            &#183; 
+            <a href="/linux">linux</a>
+        
+    
+    
+    
+        &#183; 
+        <a href="/">
+            main</a>
+    
+</p>
+
+        </nav>
+        
+        
+    </main>
+    
+    <footer class="flex-container footer">
+        
+
+    </footer>
+    
+    
+</body>
+
+</html>

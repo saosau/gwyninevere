@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+
+
+
+
+    
+
+
+
+
+
+
+    
+    
+
+
+
+    
+    
+    
+        
+    
+
+
+
+
+
+<style>
+    html {
+      background:
+          linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+          url(/bg/compsci.jpg),
+          #111;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+</style>
+
+
+
+<head>
+    
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="Mostly about computers.">
+<title>
+    Newsboat: Aggregate Notifications to a Single Application - Gwyninevere
+</title>
+
+
+<link rel="shortcut icon" href="/gwyninevere.ico">
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.min.e81d8829741d50604117eb3d2fe499979128cad8722d151bc7f4a7875d05f428.css" integrity="sha256-6B2IKXQdUGBBF&#43;s9L&#43;SZl5EoythyLRUbx/Snh10F9Cg=" crossorigin="anonymous" media="screen">
+
+
+
+
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Didact+Gothic">
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://gwyninevere.com/gwyn.png"/>
+
+<meta name="twitter:title" content="Newsboat: Aggregate Notifications to a Single Application"/>
+<meta name="twitter:description" content="I always cursed various social media for stealing my quality time. The only way to prevent timewaste was to quit completely. Even so, there were services that were necessary for me. Nevertheless no matter what, the cons would take over the pros.
+One day while browsing linux content, I found articles on RSS feeds. At first it felt very counterintuitive. Subscribe to a Youtube channel - get Youtube feed. Follow someone on Twitter - get Twitter feed."/>
+
+<meta property="og:title" content="Newsboat: Aggregate Notifications to a Single Application" />
+<meta property="og:description" content="I always cursed various social media for stealing my quality time. The only way to prevent timewaste was to quit completely. Even so, there were services that were necessary for me. Nevertheless no matter what, the cons would take over the pros.
+One day while browsing linux content, I found articles on RSS feeds. At first it felt very counterintuitive. Subscribe to a Youtube channel - get Youtube feed. Follow someone on Twitter - get Twitter feed." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://gwyninevere.com/posts/compsci/newsboat-aggregate-notifications-to-a-single-application/" /><meta property="og:image" content="http://gwyninevere.com/gwyn.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-11-05T11:40:09+02:00" />
+<meta property="article:modified_time" content="2022-11-05T11:40:09+02:00" /><meta property="og:site_name" content="Gwyninevere" />
+
+
+
+    
+
+    
+    
+    
+    <title>
+        
+        Newsboat: Aggregate Notifications to a Single Application
+        
+    </title>
+</head>
+
+<body>
+    
+    
+    <header class="wrap flex-container">
+        <h1>Newsboat: Aggregate Notifications to a Single Application</h1>
+    </header>
+    
+    <main class="wrap">
+        
+<div class="flex-container">
+    <aside role="complementary">
+        Sat Nov 05, 2022 &#183; 382 words
+    </aside>
+    <hr />
+    <article role="article">
+        <p>I always cursed various social media for stealing my quality time. The
+only way to prevent timewaste was to quit completely. Even so, there were
+services that were necessary for me. Nevertheless no matter what, the
+cons would take over the pros.</p>
+
+
+
+<img src="/pix/akari-hands-up-rss-crop.jpg">
+
+
+<p>One day while browsing linux content, I found articles on RSS feeds.
+At first it felt very counterintuitive. Subscribe to a Youtube channel -
+get Youtube feed. Follow someone on Twitter - get Twitter feed. So logical
+and so right. It would never come to my mind, that something like RSS
+could exist.</p>
+
+<h2 id="how-it-works-so-harmonically" class="anchor-link"><a href="#how-it-works-so-harmonically">How it works so harmonically<span class="pilcrow">&nbsp;¶</span></a></h2>
+<p>As an example, check out my <a href="/rss.xml">RSS feed</a>. It has listings of
+max 15 (could be whatever) last posts, each with a header and description.
+Now, when I post a new article, a new entry will appear in the XML file.
+Your RSS application pulls that link again and notifies you about a new
+entry. See a pattern? Creator posts a video, XML file updates, you get
+notified. Creator posts a social media status, XML file updates&hellip; you
+get the drill.</p>
+
+<h2 id="adding-urls-to-newsboat" class="anchor-link"><a href="#adding-urls-to-newsboat">Adding urls to newsboat<span class="pilcrow">&nbsp;¶</span></a></h2>
+<p>First thing that greets us in the beginning is error output asking us to
+create the RSS feed. Do so, then press <code>R</code> to reload.</p>
+<pre tabindex="0"><code># $HOME/.newsboat/urls
+https://gwyninevere.com/rss.xml
+https://lukesmith.xyz/index.xml
+https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA # Luke Smith
+https://www.youtube.com/feeds/videos.xml?channel_id=UCK8mZSvQYNFT2snHBUuJz9A # Saya Scarlet
+</code></pre>
+
+
+<img src="/pix/newsboat-raw.png">
+
+
+
+<h2 id="setting-up-a-configuration-file" class="anchor-link"><a href="#setting-up-a-configuration-file">Setting up a configuration file<span class="pilcrow">&nbsp;¶</span></a></h2>
+<p>That is all and nice, but we cannot open any links, because we have not
+set the browser. Other thing to consider is autoreloading. And well, like
+vim, newsboat has colorschemes in:</p>
+<p><code>/usr/share/doc/newsboat/contrib</code></p>
+<p>To enable them, copy the colorscheme config and include it. Also, to make
+links into sections, you can add &ldquo;dummy&rdquo; urls.</p>
+<pre tabindex="0"><code># $HOME/.newsboat/config
+browser &#34;firefox %u&#34; # $u means url.
+auto-reload yes
+include inkpot
+max-items 15
+</code></pre>
+
+
+<img src="/pix/newsboat.png">
+
+
+
+<h2 id="making-newsboat-vim-like" class="anchor-link"><a href="#making-newsboat-vim-like">Making newsboat vim-like<span class="pilcrow">&nbsp;¶</span></a></h2>
+<p>The graceful feature of open-source applications, extensibility. You can
+change keybindings to whatever you want:</p>
+<pre tabindex="0"><code>bind-key j down
+bind-key k up
+bind-key l open
+bind-key h quit
+bind-key j next articlelist
+bind-key k prev articlelist
+bind-key J next-feed articlelist
+bind-key K prev-feed articlelist
+bind-key G end
+bind-key g home
+bind-key d pagedown
+bind-key u pageup
+</code></pre>
+<h2 id="final-thoughts" class="anchor-link"><a href="#final-thoughts">Final thoughts<span class="pilcrow">&nbsp;¶</span></a></h2>
+<p>Once you get it going, it is pretty easy and very convenient to use.
+Peruse newsboat docs for every other feature you might want to implement.</p>
+
+
+
+<img src="/pix/newsboat-post.png">
+
+
+
+    </article>
+</div>
+
+
+        
+        
+        <nav role="navigation" class="flex-container bottom-menu">
+            
+<hr />
+
+
+<p>
+    
+        
+            <a href="/about">whois</a>
+        
+    
+    
+    
+        
+            &#183; 
+            <a href="/posts">posts</a>
+        
+            &#183; 
+            <a href="/releases">releases</a>
+        
+            &#183; 
+            <a href="/linux">linux</a>
+        
+    
+    
+    
+        &#183; 
+        <a href="/">
+            main</a>
+    
+</p>
+
+        </nav>
+        
+        
+    </main>
+    
+    <footer class="flex-container footer">
+        
+
+    </footer>
+    
+    
+</body>
+
+</html>

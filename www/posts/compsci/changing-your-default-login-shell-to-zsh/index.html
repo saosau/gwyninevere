@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+
+
+
+
+    
+
+
+
+
+
+
+    
+    
+
+
+
+    
+    
+    
+        
+    
+
+
+
+
+
+<style>
+    html {
+      background:
+          linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+          url(/bg/compsci.jpg),
+          #111;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+</style>
+
+
+
+<head>
+    
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="Mostly about computers.">
+<title>
+    Changing Your Default Login Shell to Zsh - Gwyninevere
+</title>
+
+
+<link rel="shortcut icon" href="/gwyninevere.ico">
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.min.e81d8829741d50604117eb3d2fe499979128cad8722d151bc7f4a7875d05f428.css" integrity="sha256-6B2IKXQdUGBBF&#43;s9L&#43;SZl5EoythyLRUbx/Snh10F9Cg=" crossorigin="anonymous" media="screen">
+
+
+
+
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Didact+Gothic">
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://gwyninevere.com/gwyn.png"/>
+
+<meta name="twitter:title" content="Changing Your Default Login Shell to Zsh"/>
+<meta name="twitter:description" content="Since we went over choosing a POSIX shell, now it is time we looked into interactive shells that greet us every morning. The three very often mentioned shells are Bash, Zsh and Fish. I adapted to Zsh fairly quickly, mainly because it was POSIX compliant, zshrc is basically a copy of my bashrc. Fish is an entirely different shell that needs learning new syntax. I am not fond of it, but it should not stop you in any way."/>
+
+<meta property="og:title" content="Changing Your Default Login Shell to Zsh" />
+<meta property="og:description" content="Since we went over choosing a POSIX shell, now it is time we looked into interactive shells that greet us every morning. The three very often mentioned shells are Bash, Zsh and Fish. I adapted to Zsh fairly quickly, mainly because it was POSIX compliant, zshrc is basically a copy of my bashrc. Fish is an entirely different shell that needs learning new syntax. I am not fond of it, but it should not stop you in any way." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://gwyninevere.com/posts/compsci/changing-your-default-login-shell-to-zsh/" /><meta property="og:image" content="http://gwyninevere.com/gwyn.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-10-22T00:32:13+02:00" />
+<meta property="article:modified_time" content="2022-10-22T00:32:13+02:00" /><meta property="og:site_name" content="Gwyninevere" />
+
+
+
+    
+
+    
+    
+    
+    <title>
+        
+        Changing Your Default Login Shell to Zsh
+        
+    </title>
+</head>
+
+<body>
+    
+    
+    <header class="wrap flex-container">
+        <h1>Changing Your Default Login Shell to Zsh</h1>
+    </header>
+    
+    <main class="wrap">
+        
+<div class="flex-container">
+    <aside role="complementary">
+        Sat Oct 22, 2022 &#183; 671 words
+    </aside>
+    <hr />
+    <article role="article">
+        <p>Since we went over choosing a POSIX shell, now it is time we looked
+into interactive shells that greet us every morning.
+
+
+
+<img src="/pix/bash-zsh.jpg">
+
+
+The three very often mentioned shells are Bash, Zsh and Fish. I adapted
+to Zsh fairly quickly, mainly because it was POSIX compliant, zshrc
+is basically a copy of my bashrc. Fish is an entirely different shell
+that needs learning new syntax. I am not fond of it, but it should not
+stop you in any way.</p>
+
+<h2 id="benefits-of-using-zsh-to-bash" class="anchor-link"><a href="#benefits-of-using-zsh-to-bash">Benefits of using Zsh to Bash<span class="pilcrow">&nbsp;¶</span></a></h2>
+<p>Autocompletion. Pretty syntax highlighting. If you are in for that,
+you should check it out, as Bash tab autocompletion is just autofilling
+and printing out glob really. Zsh will provide you with a selection
+menu that – yes – can be controlled by hjkl. With syntax highlighting
+you will know whether the command exists and check for typos.</p>
+<p>I do not think it is worth to compare speeds, because user experience
+is the most important in interactive shells. Nevertheless, Zsh runs
+pretty quick anyway.</p>
+
+<h2 id="change-your-default-shell-to-zsh" class="anchor-link"><a href="#change-your-default-shell-to-zsh">Change your default shell to Zsh<span class="pilcrow">&nbsp;¶</span></a></h2>
+<p>This is a very weird one. I keep all my startup environment
+definitions, e.g. PS1, LSCOLORS in a ~/.profile. So it baffled me
+that Zsh ignores it and only looks for ~/.zprofile. Because I want
+to be able to switch between shells easily, I do not hardcode
+.profiles. Either way, my login is done by /bin/sh, in this case Dash.
+Then in .profile if you set SHELL to Zsh, every terminal spawned
+will be Zsh. Lastly in the end I run exec, to make existing process
+Zsh. If you do not like it, the &ldquo;normal&rdquo; way is to use chsh.</p>
+<div class="highlight"><pre tabindex="0" style="color:#8a8a8a;background-color:#1c1c1c;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#4e4e4e"># Last updated: 25/08/2022</span>
+</span></span><span style="display:flex;"><span>[ <span style="color:#00afaf">&#34;</span><span style="color:#00afaf">${</span>-#*<span style="color:#00afaf">&#34;i&#34;</span><span style="color:#00afaf">}</span><span style="color:#00afaf">&#34;</span> = <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$-</span><span style="color:#00afaf">&#34;</span> ] &amp;&amp; <span style="color:#5f8700">return</span> <span style="color:#4e4e4e"># non-interactive shell</span>
+</span></span><span style="display:flex;"><span><span style="color:#0087ff">export</span> <span style="color:#0087ff">PATH</span>=<span style="color:#0087ff">$HOME</span>/Build/dwm/bin:<span style="color:#0087ff">$PATH</span>
+</span></span><span style="display:flex;"><span><span style="color:#0087ff">export</span> <span style="color:#0087ff">SHELL</span>=<span style="color:#00afaf">&#39;/bin/zsh&#39;</span> <span style="color:#4e4e4e"># If I want to switch shells, I do it here.</span>
+</span></span><span style="display:flex;"><span><span style="color:#0087ff">export</span> <span style="color:#0087ff">LS_COLORS</span>=<span style="color:#00afaf">&#39;rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:&#39;</span><span style="color:#4e4e4e">`</span>
+</span></span><span style="display:flex;"><span> <span style="color:#4e4e4e">`</span><span style="color:#00afaf">&#39;do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:&#39;</span><span style="color:#4e4e4e">`</span>
+</span></span><span style="display:flex;"><span> <span style="color:#4e4e4e">`</span><span style="color:#00afaf">&#39;sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:&#39;</span><span style="color:#4e4e4e">`</span>
+</span></span><span style="display:flex;"><span> <span style="color:#4e4e4e">`</span><span style="color:#00afaf">&#39;*.zip=01;31:*.gz=01;31:*.rar=01;31:*.jpg=01;35:*.jpeg=01;35:&#39;</span><span style="color:#4e4e4e">`</span>
+</span></span><span style="display:flex;"><span> <span style="color:#4e4e4e">`</span><span style="color:#00afaf">&#39;*.gif=01;35:*.png=01;35:*.mkv=01;35:*.mp4=01;35:*.aac=00;36:&#39;</span><span style="color:#4e4e4e">`</span>
+</span></span><span style="display:flex;"><span> <span style="color:#4e4e4e">`</span><span style="color:#00afaf">&#39;*.flac=00;36:*.mp3=00;36:*.ogg=00;36:*.wav=00;36:*.opus=00;36:&#39;</span><span style="color:#4e4e4e">`</span>
+</span></span><span style="display:flex;"><span> <span style="color:#4e4e4e">`</span><span style="color:#00afaf">&#39;*~=00;90:*#=00;90:*.bak=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:&#39;</span><span style="color:#4e4e4e">`</span>
+</span></span><span style="display:flex;"><span> <span style="color:#4e4e4e">`</span><span style="color:#00afaf">&#39;*.rej=00;90:*.swp=00;90:*.tmp=00;90:&#39;</span>
+</span></span><span style="display:flex;"><span>[ -f <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$HOME</span><span style="color:#00afaf">/.config/environment&#34;</span> ] &amp;&amp; . <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$HOME</span><span style="color:#00afaf">/.config/environment&#34;</span>
+</span></span><span style="display:flex;"><span>neofetch
+</span></span><span style="display:flex;"><span>[ -z <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$SSH_CONNECTION</span><span style="color:#00afaf">&#34;</span> ] &amp;&amp;
+</span></span><span style="display:flex;"><span>[ -z <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$DISPLAY</span><span style="color:#00afaf">&#34;</span> ] &amp;&amp; [ <span style="color:#00afaf">&#34;</span><span style="color:#5f8700">$(</span>fgconsole<span style="color:#5f8700">)</span><span style="color:#00afaf">&#34;</span> -eq <span style="color:#00afaf">1</span> ] &amp;&amp; <span style="color:#0087ff">exec</span> startx
+</span></span><span style="display:flex;"><span><span style="color:#0087ff">exec</span> <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$SHELL</span><span style="color:#00afaf">&#34;</span>
+</span></span></code></pre></div>
+<h2 id="the-bashrc-translated-into-zshrc" class="anchor-link"><a href="#the-bashrc-translated-into-zshrc">The bashrc translated into zshrc<span class="pilcrow">&nbsp;¶</span></a></h2>
+<p>Here are both of my RCs:</p>
+<div class="highlight"><pre tabindex="0" style="color:#8a8a8a;background-color:#1c1c1c;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#4e4e4e"># Last updated: 25/08/2022</span>
+</span></span><span style="display:flex;"><span>[ <span style="color:#00afaf">&#34;</span><span style="color:#00afaf">${</span>-#*<span style="color:#00afaf">&#34;i&#34;</span><span style="color:#00afaf">}</span><span style="color:#00afaf">&#34;</span> = <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$-</span><span style="color:#00afaf">&#34;</span> ] &amp;&amp; <span style="color:#5f8700">return</span> <span style="color:#4e4e4e"># non-interactive shell</span>
+</span></span><span style="display:flex;"><span><span style="color:#0087ff">HISTSIZE</span>=<span style="color:#00afaf">10000</span>
+</span></span><span style="display:flex;"><span><span style="color:#0087ff">SAVEHIST</span>=<span style="color:#00afaf">10000</span>
+</span></span><span style="display:flex;"><span><span style="color:#0087ff">PS1</span>=<span style="color:#00afaf">&#34;\[</span><span style="color:#5f8700">$(</span>tput bold<span style="color:#5f8700">)$(</span>tput setaf 3<span style="color:#5f8700">)</span><span style="color:#00afaf">\][\u@\h \[</span><span style="color:#5f8700">$(</span>tput setaf 7<span style="color:#5f8700">)</span><span style="color:#00afaf">\]\W&#34;</span><span style="color:#4e4e4e">`</span>
+</span></span><span style="display:flex;"><span><span style="color:#4e4e4e">`</span><span style="color:#00afaf">&#34;\[</span><span style="color:#5f8700">$(</span>tput setaf 3<span style="color:#5f8700">)</span><span style="color:#00afaf">\]]\$ \[</span><span style="color:#5f8700">$(</span>tput sgr0<span style="color:#5f8700">)</span><span style="color:#00afaf">\]&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#5f8700">if</span> [[ -f /bin/fzf ]]; <span style="color:#5f8700">then</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0087ff">source</span> /usr/share/fzf/key-bindings.bash
+</span></span><span style="display:flex;"><span>  <span style="color:#0087ff">source</span> /usr/share/fzf/completion.bash
+</span></span><span style="display:flex;"><span><span style="color:#5f8700">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#0087ff">bind</span> <span style="color:#00afaf">&#39;&#34;\C-k&#34;:vi-forward-word&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#0087ff">bind</span> <span style="color:#00afaf">&#39;&#34;\C-o&#34;:vi-backward-word&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#0087ff">alias</span> <span style="color:#0087ff">ls</span>=<span style="color:#00afaf">&#39;ls --color=auto --group-directories-first&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#0087ff">alias</span> <span style="color:#0087ff">ranger</span>=<span style="color:#00afaf">&#39;. ranger&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#0087ff">alias</span> <span style="color:#0087ff">rsync</span>=<span style="color:#00afaf">&#39;rsync -aAXvc --progress /home/nintendo/Media/&#39;</span><span style="color:#4e4e4e">`</span>
+</span></span><span style="display:flex;"><span>           <span style="color:#4e4e4e">`</span><span style="color:#00afaf">&#39;tomahawk:/home/ninmay/Media&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#0087ff">alias</span> <span style="color:#0087ff">m</span>=<span style="color:#00afaf">&#39;udisksctl mount -b&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#0087ff">alias</span> <span style="color:#0087ff">um</span>=<span style="color:#00afaf">&#39;udisksctl unmount -b&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#0087ff">alias</span> <span style="color:#0087ff">cleantags</span>=<span style="color:#00afaf">&#39;rm tags *.taghl&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>st-hcd() { <span style="color:#0087ff">dir</span>=<span style="color:#5f8700">$(</span>fzfcmd -H<span style="color:#5f8700">)</span>; [ <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$dir</span><span style="color:#00afaf">&#34;</span> ] &amp;&amp; <span style="color:#0087ff">cd</span> <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$dir</span><span style="color:#00afaf">&#34;</span> &amp;&amp; ls; }
+</span></span><span style="display:flex;"><span>st-cd() { <span style="color:#0087ff">dir</span>=<span style="color:#5f8700">$(</span>fzfcmd -d<span style="color:#5f8700">)</span>; [ <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$dir</span><span style="color:#00afaf">&#34;</span> ] &amp;&amp; <span style="color:#0087ff">cd</span> <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$dir</span><span style="color:#00afaf">&#34;</span> &amp;&amp; ls; }
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#8a8a8a;background-color:#1c1c1c;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#4e4e4e"># Last updated: 25/08/2022</span>
+</span></span><span style="display:flex;"><span>[ <span style="color:#00afaf">&#34;</span><span style="color:#00afaf">${</span>-#*<span style="color:#00afaf">&#34;i&#34;</span><span style="color:#00afaf">}</span><span style="color:#00afaf">&#34;</span> = <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$-</span><span style="color:#00afaf">&#34;</span> ] &amp;&amp; <span style="color:#5f8700">return</span> <span style="color:#4e4e4e"># non-interactive shell</span>
+</span></span><span style="display:flex;"><span><span style="color:#0087ff">HISTSIZE</span>=<span style="color:#00afaf">10000</span>
+</span></span><span style="display:flex;"><span><span style="color:#0087ff">SAVEHIST</span>=<span style="color:#00afaf">10000</span>
+</span></span><span style="display:flex;"><span><span style="color:#0087ff">HISTFILE</span>=~/.zsh_history
+</span></span><span style="display:flex;"><span><span style="color:#0087ff">source</span> <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$HOME</span><span style="color:#00afaf">/Build/fast-syntax-highlighting/&#34;</span><span style="color:#4e4e4e">`</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#4e4e4e">`</span><span style="color:#00afaf">&#34;fast-syntax-highlighting.plugin.zsh&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#5f8700">if</span> [[ -f /bin/fzf ]]; <span style="color:#5f8700">then</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0087ff">source</span> /usr/share/fzf/key-bindings.zsh
+</span></span><span style="display:flex;"><span>  <span style="color:#0087ff">source</span> /usr/share/fzf/completion.zsh
+</span></span><span style="display:flex;"><span><span style="color:#5f8700">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>autoload -U colors
+</span></span><span style="display:flex;"><span>colors
+</span></span><span style="display:flex;"><span><span style="color:#0087ff">PS1</span>=<span style="color:#00afaf">&#34;%B%{</span><span style="color:#0087ff">$fg</span><span style="color:#00afaf">[yellow]%}[%n@%m %{</span><span style="color:#0087ff">$fg</span><span style="color:#00afaf">[white]%}%1~&#34;</span><span style="color:#4e4e4e">`</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#4e4e4e">`</span><span style="color:#00afaf">&#34;%{</span><span style="color:#0087ff">$fg</span><span style="color:#00afaf">[yellow]%}]</span>$<span style="color:#00afaf">%b%{</span><span style="color:#0087ff">$fg</span><span style="color:#00afaf">[white]%} &#34;</span>
+</span></span><span style="display:flex;"><span>autoload -U compinit
+</span></span><span style="display:flex;"><span>zstyle <span style="color:#00afaf">&#39;:completion:*&#39;</span> menu <span style="color:#5f8700">select</span>
+</span></span><span style="display:flex;"><span>compinit -d <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$XDG_CACHE_HOME</span><span style="color:#00afaf">/zsh/zcompdump-</span><span style="color:#0087ff">$ZSH_VERSION</span><span style="color:#00afaf">&#34;</span>
+</span></span><span style="display:flex;"><span>zmodload zsh/complist
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>bindkey <span style="color:#00afaf">&#34;^O&#34;</span> vi-backward-word
+</span></span><span style="display:flex;"><span>bindkey <span style="color:#00afaf">&#34;^K&#34;</span> vi-forward-word
+</span></span><span style="display:flex;"><span>bindkey -M menuselect <span style="color:#00afaf">&#39;h&#39;</span> vi-backward-char
+</span></span><span style="display:flex;"><span>bindkey -M menuselect <span style="color:#00afaf">&#39;k&#39;</span> vi-up-line-or-history
+</span></span><span style="display:flex;"><span>bindkey -M menuselect <span style="color:#00afaf">&#39;l&#39;</span> vi-forward-char
+</span></span><span style="display:flex;"><span>bindkey -M menuselect <span style="color:#00afaf">&#39;j&#39;</span> vi-down-line-or-history
+</span></span><span style="display:flex;"><span><span style="color:#0087ff">alias</span> <span style="color:#0087ff">ls</span>=<span style="color:#00afaf">&#39;ls --color=always --group-directories-first&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#0087ff">alias</span> <span style="color:#0087ff">ranger</span>=<span style="color:#00afaf">&#39;. ranger&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#0087ff">alias</span> <span style="color:#0087ff">rsync</span>=<span style="color:#00afaf">&#39;rsync -aAXvc --progress /home/nintendo/Media/&#39;</span><span style="color:#4e4e4e">`</span>
+</span></span><span style="display:flex;"><span>           <span style="color:#4e4e4e">`</span><span style="color:#00afaf">&#39;tomahawk:/home/ninmay/Media&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#0087ff">alias</span> <span style="color:#0087ff">m</span>=<span style="color:#00afaf">&#39;udisksctl mount -b&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#0087ff">alias</span> <span style="color:#0087ff">um</span>=<span style="color:#00afaf">&#39;udisksctl unmount -b&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#0087ff">alias</span> <span style="color:#0087ff">cleantags</span>=<span style="color:#00afaf">&#39;rm tags *.taghl&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>st-hcd() { <span style="color:#0087ff">dir</span>=<span style="color:#5f8700">$(</span>fzfcmd -H<span style="color:#5f8700">)</span>; [ <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$dir</span><span style="color:#00afaf">&#34;</span> ] &amp;&amp; <span style="color:#0087ff">cd</span> <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$dir</span><span style="color:#00afaf">&#34;</span> &amp;&amp; ls; }
+</span></span><span style="display:flex;"><span>st-cd() { <span style="color:#0087ff">dir</span>=<span style="color:#5f8700">$(</span>fzfcmd -d<span style="color:#5f8700">)</span>; [ <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$dir</span><span style="color:#00afaf">&#34;</span> ] &amp;&amp; <span style="color:#0087ff">cd</span> <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$dir</span><span style="color:#00afaf">&#34;</span> &amp;&amp; ls; }
+</span></span></code></pre></div>
+<h2 id="differences-more-in-detail" class="anchor-link"><a href="#differences-more-in-detail">Differences more in detail<span class="pilcrow">&nbsp;¶</span></a></h2>
+<ul>
+<li>HISTFILE can be anything else, if not specified it will just
+create a default one.</li>
+<li><code>fast-syntax-highlighting</code> is a plugin that you can get on
+github. It comes with many colorschemes.</li>
+<li>In Bash, we put various codes or, as you see, you can use
+tput between \[ \]. On the other hand, in Zsh the format is
+%{ %}. Both of these yield exactly the same PS1. To use <code>fg</code>
+you need to load color module.</li>
+<li>Lines that follow are for autocompletion.</li>
+<li>Keybindings are pretty much the same, just invoked differently
+with different parameters.</li>
+</ul>
+
+
+
+<img src="/pix/zsh-example.png">
+
+
+
+    </article>
+</div>
+
+
+        
+        
+        <nav role="navigation" class="flex-container bottom-menu">
+            
+<hr />
+
+
+<p>
+    
+        
+            <a href="/about">whois</a>
+        
+    
+    
+    
+        
+            &#183; 
+            <a href="/posts">posts</a>
+        
+            &#183; 
+            <a href="/releases">releases</a>
+        
+            &#183; 
+            <a href="/linux">linux</a>
+        
+    
+    
+    
+        &#183; 
+        <a href="/">
+            main</a>
+    
+</p>
+
+        </nav>
+        
+        
+    </main>
+    
+    <footer class="flex-container footer">
+        
+
+    </footer>
+    
+    
+</body>
+
+</html>
