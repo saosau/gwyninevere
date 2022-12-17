@@ -109,7 +109,7 @@ of each output." />
         
 <div class="flex-container">
     <aside role="complementary">
-        Fri Dec 16, 2022 &#183; 50 words
+        Fri Dec 16, 2022 &#183; 82 words
     </aside>
     <hr />
     <article role="article">
@@ -118,9 +118,13 @@ processes run programs concurrently and be able to get the last lines
 of each output.</p>
 <p>I began coding it, so far I am done with:</p>
 <ol>
-<li>parsing input.</li>
+<li>parsing input,</li>
+<li>squashing output to a single line,</li>
+<li>implementing run command function.</li>
 </ol>
-<p>Right now I&rsquo;m thinking how to save last lines.</p>
+<p>Right now I&rsquo;m thinking how to make threads work on the same memory. After
+that I should secure the shared memory with mutexes and I would guess the
+rest is easy.</p>
     </article>
 </div>
 
