@@ -6,7 +6,21 @@
     <description>Recent content on Gwyninevere</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 16 Dec 2022 19:51:26 +0100</lastBuildDate><atom:link href="http://gwyninevere.com/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 18 Dec 2022 00:13:19 +0100</lastBuildDate><atom:link href="http://gwyninevere.com/rss.xml" rel="self" type="application/rss+xml" />
+      
+    
+      
+      <item>
+        <title>Shell File Manager</title>
+        <link>http://gwyninevere.com/posts/compsci/shell-file-manager/</link>
+        <pubDate>Sat, 17 Dec 2022 20:38:33 +0100</pubDate>
+        
+        <guid>http://gwyninevere.com/posts/compsci/shell-file-manager/</guid>
+        <description>&lt;p&gt;I put a lot of time nurturing this shell script. As a result it comes
+with many functionalities, but I consider them all essential.&lt;/p&gt;</description>
+      </item>
+      
+    
       
     
       

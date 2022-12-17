@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+
+
+
+
+    
+
+
+
+
+
+
+    
+    
+
+
+
+    
+    
+    
+
+
+
+
+
+<style>
+    html {
+      background:
+          linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+          url(/bg/compsci.jpg),
+          #111;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+</style>
+
+
+
+<head>
+    
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="Mostly about computers.">
+<title>
+    Shell File Manager - Gwyninevere
+</title>
+
+
+<link rel="shortcut icon" href="/gwyninevere.ico">
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.min.3cf97dd48e47166c0e29435ddca5c65cf80f8c473b882e1c59c33d992626252f.css" integrity="sha256-PPl91I5HFmwOKUNd3KXGXPgPjEc7iC4cWcM9mSYmJS8=" crossorigin="anonymous" media="screen">
+
+
+
+
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Didact+Gothic">
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://gwyninevere.com/gwyn.png"/>
+
+<meta name="twitter:title" content="Shell File Manager"/>
+<meta name="twitter:description" content="I put a lot of time nurturing this shell script. As a result it comes
+with many functionalities, but I consider them all essential."/>
+
+<meta property="og:title" content="Shell File Manager" />
+<meta property="og:description" content="I put a lot of time nurturing this shell script. As a result it comes
+with many functionalities, but I consider them all essential." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://gwyninevere.com/posts/compsci/shell-file-manager/" /><meta property="og:image" content="http://gwyninevere.com/gwyn.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-12-17T20:38:33+01:00" />
+<meta property="article:modified_time" content="2022-12-17T20:38:33+01:00" /><meta property="og:site_name" content="Gwyninevere" />
+
+
+
+    
+
+    
+    
+    
+    <title>
+        
+        Shell File Manager
+        
+    </title>
+</head>
+
+<body>
+    
+    
+    <header class="wrap flex-container">
+        <h1>Shell File Manager</h1>
+    </header>
+    
+    <main class="wrap">
+        
+<div class="flex-container">
+    <aside role="complementary">
+        Sat Dec 17, 2022 &#183; 735 words
+    </aside>
+    <hr />
+    <article role="article">
+        <p>I put a lot of time nurturing this shell script. As a result it comes
+with many functionalities, but I consider them all essential.</p>
+<p>If all of this is complicated, why not write it in C? Well, when I
+started out, I didn&rsquo;t really know that much of low-level programming.
+I will defend with an argument, that despite shell being slow, all this
+script does is calling other programs, so it&rsquo;s execution depends on the
+utils. But what if GNU coreutils are bloated?</p>
+<p>[ The video, it&rsquo;s not here yet&hellip; ? SAO! ]</p>
+
+<h2 id="assumptions" class="anchor-link"><a href="#assumptions">Assumptions<span class="pilcrow">&nbsp;¶</span></a></h2>
+<p>Let&rsquo;s start of with the fact, that fzf is an imperfect program. Simply
+run these two lines&hellip;</p>
+<div class="highlight"><pre tabindex="0" style="color:#8a8a8a;background-color:#1c1c1c;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>touch <span style="color:#00afaf">$&#39;fun\ndestroyer&#39;</span>
+</span></span><span style="display:flex;"><span>fzf 
+</span></span></code></pre></div><p>So obviously, the product will be imperfect as well. Our application
+works, but isn&rsquo;t a professionally written one, it would have to be
+rewritten from the core. And I know, you can delimit files with <code>\0</code>
+instead, but it&rsquo;s flawed anyway. But I think it&rsquo;s fine this way, fzf
+is an amazing add-on to the shell and we are here to make it even more
+amazing.</p>
+
+<h2 id="improvement-1" class="anchor-link"><a href="#improvement-1">Improvement #1<span class="pilcrow">&nbsp;¶</span></a></h2>
+<p>Instead of cd&rsquo;ing into a deep directory you can select the directory on
+fzf query through list of directories. Add these to your shell rc:</p>
+<div class="highlight"><pre tabindex="0" style="color:#8a8a8a;background-color:#1c1c1c;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>st-hcd() { <span style="color:#0087ff">prev</span>=<span style="color:#5f8700">$(</span><span style="color:#0087ff">pwd</span><span style="color:#5f8700">)</span> <span style="color:#0087ff">dir</span>=<span style="color:#5f8700">$(</span>fzfcmd -H<span style="color:#5f8700">)</span>; [[ <span style="color:#0087ff">$dir</span> ]] &amp;&amp; <span style="color:#0087ff">cd</span> <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$dir</span><span style="color:#00afaf">&#34;</span> &amp;&amp; ls; }
+</span></span><span style="display:flex;"><span>st-cd() { <span style="color:#0087ff">prev</span>=<span style="color:#5f8700">$(</span><span style="color:#0087ff">pwd</span><span style="color:#5f8700">)</span> <span style="color:#0087ff">dir</span>=<span style="color:#5f8700">$(</span>fzfcmd -d<span style="color:#5f8700">)</span>; [[ <span style="color:#0087ff">$dir</span> ]] &amp;&amp; <span style="color:#0087ff">cd</span> <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$dir</span><span style="color:#00afaf">&#34;</span> &amp;&amp; ls; }
+</span></span><span style="display:flex;"><span>st-bcd() { [[ <span style="color:#5f8700">$(</span><span style="color:#0087ff">pwd</span><span style="color:#5f8700">)</span> = <span style="color:#0087ff">$HOME</span> ]] || <span style="color:#0087ff">cd</span> ..; }
+</span></span><span style="display:flex;"><span>st-dcd() { <span style="color:#0087ff">cd</span> <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$prev</span><span style="color:#00afaf">&#34;</span>; }
+</span></span></code></pre></div><p>Then you can set keybindings in your shell rc or your terminal settings
+to call for these functions.</p>
+
+<h2 id="improvement-2" class="anchor-link"><a href="#improvement-2">Improvement #2<span class="pilcrow">&nbsp;¶</span></a></h2>
+<p>Sometimes we move/copy/remove multiple files from a directory that is
+deeper then the current working one and writing out that same path can
+feel repetetive. As a remedy we usually cd into that folder, but then
+to move/copy it to the directory from a different branch we need to
+find it by instinctively typing in <code>../../..</code> .</p>
+<p>Instead, we can stay in the common directory, first query source files,
+then query destination directory. Since operations can differ, <code>fzfcmd -x</code>
+does 3 queries, additional one for selecting the bulk command.</p>
+<p>fzfcmd enables multiple selection on file queries. If you want certain
+group of files to be included, write a pattern that will list only the
+files you want and press BTab (Shift + Tab) which toggles them all. You
+can also toggle/untoggle single files with Tab.</p>
+
+<h2 id="improvement-3" class="anchor-link"><a href="#improvement-3">Improvement #3<span class="pilcrow">&nbsp;¶</span></a></h2>
+<p>Sometimes we want to rename files in bulk, and vim is a perfect tool for
+regex find and replace, appending, prepending or enumerating files. As in
+<strong>#2</strong>, we query source files. Then these files are printed in a
+lexicographical order and opened in vim. Make the changes you need, then
+save and quit. Once out, fzfcmd renames files using names in the
+corresponding lines. You can call this utility like this: <code>fzfcmd -r</code> .</p>
+
+<h2 id="caveat" class="anchor-link"><a href="#caveat">Caveat<span class="pilcrow">&nbsp;¶</span></a></h2>
+<p>At this rate, this app can do as much, and maybe much more than other
+file managers. There must be a caveat behind going deep in the file
+structures and there actually is one. Sometimes we want to work on files
+that are on the certain depth, but fzfcmd will always recurse into the
+rest. To fix this, we can tailor queries, fzfcmd has 5 types: <em>default,
+sorted, depth 1, depth 2, depth 3 query</em>. To use them press either of
+these 5 keys &ldquo;~`@#%&rdquo;.</p>
+
+<h2 id="sugar-syntax" class="anchor-link"><a href="#sugar-syntax">Sugar syntax<span class="pilcrow">&nbsp;¶</span></a></h2>
+<p>And this, THIS is what fzf is for. Oh my god, the file previewing option
+is golden. With <code>ueberzug</code> and <code>ffmpegthumbnailer</code> <em>most</em> of the files
+will get their preview. Directories are listed with <em>ls</em>, text files with
+<em>cat</em>, pictures are displayed with <em>ueberzug</em>. Since videos and pdf files
+don&rsquo;t have their picture representation we create their thumbnails and
+cache them.</p>
+
+<h2 id="app-picker" class="anchor-link"><a href="#app-picker">App-picker<span class="pilcrow">&nbsp;¶</span></a></h2>
+<p>This goes with <strong>#2</strong>, but we can bulk execute files as well. Different
+files are ran differently, but really, it is a simple switch case. But
+sometimes we don&rsquo;t want all of them to be opened at once, for example
+songs. We want them enqueued. With <em>mpv</em>, app-picker communicates with
+its socket to enqueue selected songs. So during listen or even after,
+app-picker checks if mpv is running, and if it is, appends songs.
+Terminal terminal!</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/s37On15RkAI" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<p>All of this makes life in the terminal so much easier, and we all love
+terminals. If you&rsquo;re still not sure what is what, see the demonstration
+video.</p>
+    </article>
+</div>
+
+
+        
+        
+        <nav role="navigation" class="flex-container bottom-menu">
+            
+<hr />
+
+
+<p>
+    
+        
+            <a href="/about">whois</a>
+        
+    
+    
+    
+        
+            &#183; 
+            <a href="/posts">posts</a>
+        
+            &#183; 
+            <a href="/releases">releases</a>
+        
+            &#183; 
+            <a href="/linux">linux</a>
+        
+    
+    
+    
+        &#183; 
+        <a href="/">
+            main</a>
+    
+</p>
+
+        </nav>
+        
+        
+    </main>
+    
+    <footer class="flex-container footer">
+        
+
+    </footer>
+    
+    
+</body>
+
+</html>
