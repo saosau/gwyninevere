@@ -2,11 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://gwyninevere.com/</loc>
+    <lastmod>2022-12-20T23:04:52+01:00</lastmod>
+  </url><url>
+    <loc>http://gwyninevere.com/posts/personal/i-sometimes-feel-like-a-hardstuck-plat/</loc>
+    <lastmod>2022-12-20T23:04:52+01:00</lastmod>
+  </url><url>
     <loc>http://gwyninevere.com/posts/compsci/actually-using-dwm-st-i-use-dwm-st-btw/</loc>
     <lastmod>2022-12-19T22:01:55+01:00</lastmod>
   </url><url>
-    <loc>http://gwyninevere.com/</loc>
-    <lastmod>2022-12-19T22:01:55+01:00</lastmod>
+    <loc>http://gwyninevere.com/posts/personal/</loc>
+    <lastmod>2022-12-18T23:01:28+01:00</lastmod>
+  </url><url>
+    <loc>http://gwyninevere.com/terms/</loc>
+    <lastmod>2022-12-18T22:50:49+01:00</lastmod>
   </url><url>
     <loc>http://gwyninevere.com/posts/compsci/improving-shell-syntax-of-git-with-fzf/</loc>
     <lastmod>2022-12-18T20:12:49+01:00</lastmod>
@@ -55,7 +64,5 @@
   </url><url>
     <loc>http://gwyninevere.com/about/</loc>
     <lastmod>2022-07-31T12:21:57-05:00</lastmod>
-  </url><url>
-    <loc>http://gwyninevere.com/terms/</loc>
   </url>
 </urlset>
