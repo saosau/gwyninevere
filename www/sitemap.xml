@@ -2,14 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://gwyninevere.com/posts/compsci/actually-using-dwm-st-i-use-dwm-st-btw/</loc>
+    <lastmod>2022-12-19T22:01:55+01:00</lastmod>
+  </url><url>
     <loc>http://gwyninevere.com/</loc>
-    <lastmod>2022-12-18T20:12:49+01:00</lastmod>
+    <lastmod>2022-12-19T22:01:55+01:00</lastmod>
   </url><url>
-    <loc>http://gwyninevere.com/posts/compsci/integrating-fzf-to-git/</loc>
+    <loc>http://gwyninevere.com/posts/compsci/improving-shell-syntax-of-git-with-fzf/</loc>
     <lastmod>2022-12-18T20:12:49+01:00</lastmod>
-  </url><url>
-    <loc>http://gwyninevere.com/releases/saos-config/documenting-shell-scripts/</loc>
-    <lastmod>2022-12-18T00:13:19+01:00</lastmod>
   </url><url>
     <loc>http://gwyninevere.com/posts/compsci/shell-file-manager/</loc>
     <lastmod>2022-12-17T20:38:33+01:00</lastmod>
@@ -17,11 +17,11 @@
     <loc>http://gwyninevere.com/releases/saos-school/second-concurrent-programming-project/</loc>
     <lastmod>2022-12-16T19:51:26+01:00</lastmod>
   </url><url>
-    <loc>http://gwyninevere.com/releases/saos-config/make-shell-scripts-public/</loc>
-    <lastmod>2022-12-16T19:47:30+01:00</lastmod>
-  </url><url>
     <loc>http://gwyninevere.com/posts/compsci/organize-your-git-repositories/</loc>
     <lastmod>2022-12-16T00:16:57+01:00</lastmod>
+  </url><url>
+    <loc>http://gwyninevere.com/releases/saos-config/shell-scripts/</loc>
+    <lastmod>2022-12-15T19:47:30+01:00</lastmod>
   </url><url>
     <loc>http://gwyninevere.com/posts/compsci/if-your-school-runs-computers-on-linux/</loc>
     <lastmod>2022-12-14T22:57:21+01:00</lastmod>

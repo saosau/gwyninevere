@@ -6,19 +6,29 @@
     <description>Recent content on Gwyninevere</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 18 Dec 2022 20:12:49 +0100</lastBuildDate><atom:link href="http://gwyninevere.com/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 19 Dec 2022 22:01:55 +0100</lastBuildDate><atom:link href="http://gwyninevere.com/rss.xml" rel="self" type="application/rss+xml" />
       
       <item>
-        <title>Integrating Fzf to Git</title>
-        <link>http://gwyninevere.com/posts/compsci/integrating-fzf-to-git/</link>
-        <pubDate>Sun, 18 Dec 2022 20:12:49 +0100</pubDate>
+        <title>Actually using dwm/st, I use dwm/st btw</title>
+        <link>http://gwyninevere.com/posts/compsci/actually-using-dwm-st-i-use-dwm-st-btw/</link>
+        <pubDate>Mon, 19 Dec 2022 22:01:55 +0100</pubDate>
         
-        <guid>http://gwyninevere.com/posts/compsci/integrating-fzf-to-git/</guid>
-        <description>&lt;p&gt;I really like this project myself, it&amp;rsquo;s written by that same guy who made
-fzf and it works out of the box.&lt;/p&gt;</description>
+        <guid>http://gwyninevere.com/posts/compsci/actually-using-dwm-st-i-use-dwm-st-btw/</guid>
+        <description>&lt;p&gt;Installing dwm and st is really, really easy. Maybe a bit harder, when
+you don&amp;rsquo;t have sudo.&lt;/p&gt;</description>
       </item>
       
     
+      
+      <item>
+        <title>Improving Shell Syntax of Git with Fzf</title>
+        <link>http://gwyninevere.com/posts/compsci/improving-shell-syntax-of-git-with-fzf/</link>
+        <pubDate>Sun, 18 Dec 2022 20:12:49 +0100</pubDate>
+        
+        <guid>http://gwyninevere.com/posts/compsci/improving-shell-syntax-of-git-with-fzf/</guid>
+        <description>&lt;p&gt;I really like this project myself, it&amp;rsquo;s written by that same guy who made
+fzf and it works out of the box.&lt;/p&gt;</description>
+      </item>
       
     
       
@@ -36,8 +46,6 @@ with many functionalities, but I consider them all essential.&lt;/p&gt;</descrip
       
     
       
-    
-      
       <item>
         <title>Organize Your Git Repositories</title>
         <link>http://gwyninevere.com/posts/compsci/organize-your-git-repositories/</link>
@@ -49,6 +57,8 @@ I&amp;rsquo;ve got a lot of repositories that serve their purposes, but I feel a
 of them become hard to maintain once you stop keeping track of them, so
 I decided to change it, once and for all.&lt;/p&gt;</description>
       </item>
+      
+    
       
     
       

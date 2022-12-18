@@ -4,12 +4,25 @@
 
 
 
+    
 
 
 
 
 
 
+    
+    
+
+
+
+    
+    
+    
+        
+            
+        
+    
 
 
 
@@ -19,7 +32,7 @@
     html {
       background:
           linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-          url(sadge),
+          url(/bg/compsci.jpg),
           #111;
       background-repeat: no-repeat;
       background-attachment: fixed;
@@ -40,7 +53,7 @@
 
 <meta name="description" content="Mostly about computers.">
 <title>
-    Second University Year - Gwyninevere
+    Improving Shell Syntax of Git with Fzf - Gwyninevere
 </title>
 
 
@@ -70,21 +83,17 @@
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="http://gwyninevere.com/gwyn.png"/>
 
-<meta name="twitter:title" content="Second University Year"/>
-<meta name="twitter:description" content="Second concurrent programming project (C)&nbsp;¶
-This project is due to the 9th of January 2023. I need to have
-processes run programs concurrently and be able to get the last lines
-of each output."/>
+<meta name="twitter:title" content="Improving Shell Syntax of Git with Fzf"/>
+<meta name="twitter:description" content="I really like this project myself, it&rsquo;s written by that same guy who made
+fzf and it works out of the box."/>
 
-<meta property="og:title" content="Second University Year" />
-<meta property="og:description" content="Second concurrent programming project (C)&nbsp;¶
-This project is due to the 9th of January 2023. I need to have
-processes run programs concurrently and be able to get the last lines
-of each output." />
+<meta property="og:title" content="Improving Shell Syntax of Git with Fzf" />
+<meta property="og:description" content="I really like this project myself, it&rsquo;s written by that same guy who made
+fzf and it works out of the box." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://gwyninevere.com/releases/saos-school/second-concurrent-programming-project/" /><meta property="og:image" content="http://gwyninevere.com/gwyn.png"/><meta property="article:section" content="releases" />
-<meta property="article:published_time" content="2022-12-16T19:51:26+01:00" />
-<meta property="article:modified_time" content="2022-12-16T19:51:26+01:00" /><meta property="og:site_name" content="Gwyninevere" />
+<meta property="og:url" content="http://gwyninevere.com/posts/compsci/improving-shell-syntax-of-git-with-fzf/" /><meta property="og:image" content="http://gwyninevere.com/gwyn.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-12-18T20:12:49+01:00" />
+<meta property="article:modified_time" content="2022-12-18T20:12:49+01:00" /><meta property="og:site_name" content="Gwyninevere" />
 
 
 
@@ -95,7 +104,7 @@ of each output." />
     
     <title>
         
-        Second University Year
+        Improving Shell Syntax of Git with Fzf
         
     </title>
 </head>
@@ -104,30 +113,37 @@ of each output." />
     
     
     <header class="wrap flex-container">
-        <h1>Second University Year</h1>
+        <h1>Improving Shell Syntax of Git with Fzf</h1>
     </header>
     
     <main class="wrap">
         
 <div class="flex-container">
     <aside role="complementary">
-        Fri Dec 16, 2022 &#183; 87 words
+        Sun Dec 18, 2022 &#183; 71 words
     </aside>
     <hr />
     <article role="article">
-        <h2 id="second-concurrent-programming-project-c" class="anchor-link"><a href="#second-concurrent-programming-project-c">Second concurrent programming project (C)<span class="pilcrow">&nbsp;¶</span></a></h2>
-<p>This project is due to the 9th of January 2023. I need to have
-processes run programs concurrently and be able to get the last lines
-of each output.</p>
-<p>I began coding it, so far I am done with:</p>
-<ol>
-<li>parsing input,</li>
-<li>squashing output to a single line,</li>
-<li>implementing run command function.</li>
-</ol>
-<p>Right now I&rsquo;m thinking how to make threads work on the same memory. After
-that I should secure the shared memory with mutexes and I would guess the
-rest is easy.</p>
+        <p>I really like this project myself, it&rsquo;s written by that same guy who made
+fzf and it works out of the box.</p>
+<p>Here is the
+<a href="https://github.com/junegunn/fzf-git.sh">repo</a>. It&rsquo;s a single script file
+so all you need to do is add to shell rc:</p>
+<div class="highlight"><pre tabindex="0" style="color:#8a8a8a;background-color:#1c1c1c;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#0087ff">source</span> [path]/fzf-git.sh
+</span></span></code></pre></div>
+<h2 id="general-use" class="anchor-link"><a href="#general-use">General use<span class="pilcrow">&nbsp;¶</span></a></h2>
+<p>Well, you can either:</p>
+<ul>
+<li>fall back to a commit, by quickly selecting the hash.</li>
+<li>quickly change a branch.</li>
+</ul>
+<p>Probably that&rsquo;s it. But it&rsquo;s really neat.
+
+
+
+<img src="/pix/git/fzf-git.png">
+
+</p>
     </article>
 </div>
 
