@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+
+
+
+    
+
+
+
+
+
+
+    
+    
+
+
+
+    
+    
+    
+
+
+
+
+
+<style>
+    html {
+      background:
+          linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+          url(/bg/compsci.jpg),
+          #111;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+</style>
+
+
+
+<head>
+    
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="Mostly about computers.">
+<title>
+    Honestly, Just Use Zsh - Gwyninevere
+</title>
+
+
+<link rel="shortcut icon" href="/gwyninevere.ico">
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.min.3cf97dd48e47166c0e29435ddca5c65cf80f8c473b882e1c59c33d992626252f.css" integrity="sha256-PPl91I5HFmwOKUNd3KXGXPgPjEc7iC4cWcM9mSYmJS8=" crossorigin="anonymous" media="screen">
+
+
+
+
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Didact+Gothic">
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://gwyninevere.com/gwyn.png"/>
+
+<meta name="twitter:title" content="Honestly, Just Use Zsh"/>
+<meta name="twitter:description" content="Honestly, Bash compared to Zsh was always a painful shell for me. At
+least after I went Zsh-team."/>
+
+<meta property="og:title" content="Honestly, Just Use Zsh" />
+<meta property="og:description" content="Honestly, Bash compared to Zsh was always a painful shell for me. At
+least after I went Zsh-team." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://gwyninevere.com/posts/compsci/honestly-just-use-zsh/" /><meta property="og:image" content="http://gwyninevere.com/gwyn.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-12-21T17:52:14+01:00" />
+<meta property="article:modified_time" content="2022-12-21T17:52:14+01:00" /><meta property="og:site_name" content="Gwyninevere" />
+
+
+
+    
+
+    
+    
+    
+    <title>
+        
+        Honestly, Just Use Zsh
+        
+    </title>
+</head>
+
+<body>
+    
+    
+    <header class="wrap flex-container">
+        <h1>Honestly, Just Use Zsh</h1>
+    </header>
+    
+    <main class="wrap">
+        
+<div class="flex-container">
+    <aside role="complementary">
+        Wed Dec 21, 2022 &#183; 205 words
+    </aside>
+    <hr />
+    <article role="article">
+        <p>Honestly, Bash compared to Zsh was always a painful shell for me. At
+least after I went Zsh-team.</p>
+<p>To set zsh as your main shell, either use <code>chsh</code> or set the environment
+variable <code>$SHELL</code> in your .profile. It will ask you for a setup, but
+you don&rsquo;t need to go through it, all you need is .zshrc.</p>
+
+<h2 id="zshrc" class="anchor-link"><a href="#zshrc">.zshrc<span class="pilcrow">&nbsp;¶</span></a></h2>
+<p>Generally, I don&rsquo;t understand zshrc. The manual is really bloated, so
+I just wrote these lines and forgot about them:</p>
+<div class="highlight"><pre tabindex="0" style="color:#8a8a8a;background-color:#1c1c1c;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>[[ <span style="color:#00afaf">${</span>-#*<span style="color:#00afaf">&#34;i&#34;</span><span style="color:#00afaf">}</span> = <span style="color:#0087ff">$-</span> ]] &amp;&amp; <span style="color:#5f8700">return</span> <span style="color:#4e4e4e"># non-interactive shell</span>
+</span></span><span style="display:flex;"><span><span style="color:#0087ff">HISTSIZE</span>=<span style="color:#00afaf">10000</span>
+</span></span><span style="display:flex;"><span><span style="color:#0087ff">SAVEHIST</span>=<span style="color:#00afaf">10000</span>
+</span></span><span style="display:flex;"><span><span style="color:#0087ff">HISTFILE</span>=<span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$XDG_STATE_HOME</span><span style="color:#00afaf">/zsh/history&#34;</span>
+</span></span><span style="display:flex;"><span>autoload -U colors
+</span></span><span style="display:flex;"><span>colors
+</span></span><span style="display:flex;"><span><span style="color:#0087ff">PS1</span>=<span style="color:#00afaf">&#34;%B%{</span><span style="color:#0087ff">$fg</span><span style="color:#00afaf">[green]%}[%n@%m %{</span><span style="color:#0087ff">$fg</span><span style="color:#00afaf">[white]%}%1~&#34;</span><span style="color:#4e4e4e">`</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#00afaf">&#34;%{</span><span style="color:#0087ff">$fg</span><span style="color:#00afaf">[green]%}]</span>$<span style="color:#00afaf">%b%{</span><span style="color:#0087ff">$fg</span><span style="color:#00afaf">[white]%} &#34;</span>
+</span></span><span style="display:flex;"><span>   autoload -U compinit
+</span></span><span style="display:flex;"><span>   zstyle <span style="color:#00afaf">&#39;:completion:*&#39;</span> menu <span style="color:#5f8700">select</span>
+</span></span><span style="display:flex;"><span>   compinit -d <span style="color:#00afaf">&#34;</span><span style="color:#0087ff">$XDG_CACHE_HOME</span><span style="color:#00afaf">/zsh/zcompdump-</span><span style="color:#0087ff">$ZSH_VERSION</span><span style="color:#00afaf">&#34;</span>
+</span></span><span style="display:flex;"><span>   zmodload zsh/complist
+</span></span><span style="display:flex;"><span>   bindkey -M menuselect <span style="color:#00afaf">&#39;h&#39;</span> vi-backward-char
+</span></span><span style="display:flex;"><span>   bindkey -M menuselect <span style="color:#00afaf">&#39;k&#39;</span> vi-up-line-or-history
+</span></span><span style="display:flex;"><span>   bindkey -M menuselect <span style="color:#00afaf">&#39;l&#39;</span> vi-forward-char
+</span></span><span style="display:flex;"><span>   bindkey -M menuselect <span style="color:#00afaf">&#39;j&#39;</span> vi-down-line-or-history
+</span></span></code></pre></div><p>Remember that these XDG base directories must exist! <em>(the zsh folder as well)</em></p>
+<p>Now when you don&rsquo;t know the contents of a directory just tab it out,
+you can also select it with hjkl keys. It will stay on the line you are
+on at the moment instead of being moved down. Also, ssh and scp
+completion and many more, it&rsquo;s just too comfortable. I really, really
+recommend adding in
+<a href="https://github.com/zdharma-continuum/fast-syntax-highlighting">syntax highlighting</a>
+as well.</p>
+    </article>
+</div>
+
+
+        
+        
+        <nav role="navigation" class="flex-container bottom-menu">
+            
+<hr />
+
+
+<p>
+    
+        
+            <a href="/about">whois</a>
+        
+    
+    
+    
+        
+            &#183; 
+            <a href="/posts">posts</a>
+        
+            &#183; 
+            <a href="/releases">releases</a>
+        
+            &#183; 
+            <a href="/linux">linux</a>
+        
+    
+    
+    
+        &#183; 
+        <a href="/">
+            main</a>
+    
+</p>
+
+        </nav>
+        
+        
+    </main>
+    
+    <footer class="flex-container footer">
+        
+
+    </footer>
+    
+    
+</body>
+
+</html>

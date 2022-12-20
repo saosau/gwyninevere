@@ -3,10 +3,19 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://gwyninevere.com/</loc>
-    <lastmod>2022-12-20T23:04:52+01:00</lastmod>
+    <lastmod>2022-12-21T17:52:14+01:00</lastmod>
+  </url><url>
+    <loc>http://gwyninevere.com/posts/compsci/honestly-just-use-zsh/</loc>
+    <lastmod>2022-12-21T17:52:14+01:00</lastmod>
+  </url><url>
+    <loc>http://gwyninevere.com/posts/compsci/to-arch-or-to-gentoo-that-is-the-question/</loc>
+    <lastmod>2022-12-21T17:36:36+01:00</lastmod>
   </url><url>
     <loc>http://gwyninevere.com/posts/personal/i-sometimes-feel-like-a-hardstuck-plat/</loc>
     <lastmod>2022-12-20T23:04:52+01:00</lastmod>
+  </url><url>
+    <loc>http://gwyninevere.com/posts/compsci/updating-a-gentoo-system-isnt-such-a-big-deal/</loc>
+    <lastmod>2022-12-20T17:14:47+01:00</lastmod>
   </url><url>
     <loc>http://gwyninevere.com/posts/compsci/difference-between-posix-shell-and-bash/</loc>
     <lastmod>2022-12-20T14:43:35+01:00</lastmod>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+
+
+
+    
+
+
+
+
+
+
+    
+    
+
+
+
+    
+    
+    
+
+
+
+
+
+<style>
+    html {
+      background:
+          linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+          url(/bg/compsci.jpg),
+          #111;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+</style>
+
+
+
+<head>
+    
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="Mostly about computers.">
+<title>
+    Updating a Gentoo System Isn&rsquo;t Such a Big Deal&hellip; - Gwyninevere
+</title>
+
+
+<link rel="shortcut icon" href="/gwyninevere.ico">
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.min.3cf97dd48e47166c0e29435ddca5c65cf80f8c473b882e1c59c33d992626252f.css" integrity="sha256-PPl91I5HFmwOKUNd3KXGXPgPjEc7iC4cWcM9mSYmJS8=" crossorigin="anonymous" media="screen">
+
+
+
+
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Didact+Gothic">
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://gwyninevere.com/gwyn.png"/>
+
+<meta name="twitter:title" content="Updating a Gentoo System Isn&#39;t Such a Big Deal..."/>
+<meta name="twitter:description" content="So here&rsquo;s how you could update your gentoo system."/>
+
+<meta property="og:title" content="Updating a Gentoo System Isn&#39;t Such a Big Deal..." />
+<meta property="og:description" content="So here&rsquo;s how you could update your gentoo system." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://gwyninevere.com/posts/compsci/updating-a-gentoo-system-isnt-such-a-big-deal/" /><meta property="og:image" content="http://gwyninevere.com/gwyn.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-12-20T17:14:47+01:00" />
+<meta property="article:modified_time" content="2022-12-20T17:14:47+01:00" /><meta property="og:site_name" content="Gwyninevere" />
+
+
+
+    
+
+    
+    
+    
+    <title>
+        
+        Updating a Gentoo System Isn&rsquo;t Such a Big Deal&hellip;
+        
+    </title>
+</head>
+
+<body>
+    
+    
+    <header class="wrap flex-container">
+        <h1>Updating a Gentoo System Isn&rsquo;t Such a Big Deal&hellip;</h1>
+    </header>
+    
+    <main class="wrap">
+        
+<div class="flex-container">
+    <aside role="complementary">
+        Tue Dec 20, 2022 &#183; 168 words
+    </aside>
+    <hr />
+    <article role="article">
+        <p>So here&rsquo;s how you could update your gentoo system.</p>
+<p>I usually have quiet and ask paremeters in <code>$EMERGE_DEFAULT_OPTS</code>
+variable in /etc/portage/make.conf. If you set them beforehand,
+updating the system looks like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#8a8a8a;background-color:#1c1c1c;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>emerge -uDN @world <span style="color:#4e4e4e"># with -av --quiet-build=y in EMERGE_DEFAULT_OPTS</span>
+</span></span><span style="display:flex;"><span>emerge -aqvuDN @world
+</span></span></code></pre></div><p>Super. But in reality, especially if you are on bleeding edge side of
+Gentoo (for example ~amd64), then you are going to build a lot of
+packages, and you&rsquo;re going to wait unimaginably long every weekly update
+for laptops at least.</p>
+
+<h2 id="hosting-your-own-binary-packages" class="anchor-link"><a href="#hosting-your-own-binary-packages">Hosting your own binary packages<span class="pilcrow">&nbsp;¶</span></a></h2>
+<p>You are a Gentoo user, so obviously you are able to go through this
+<a href="https://wiki.gentoo.org/wiki/Binary_package_guide">manual</a>. So what&rsquo;s
+the idea, well obviously, laptops aren&rsquo;t as fast as computers when
+it comes to compiling. So instead, we let PC do what it was supposed to
+do and then download binaries to our laptop.</p>
+<p>So I&rsquo;m going back home, to update my laptop I haven&rsquo;t updated in 2 months
+now. And then I&rsquo;ll say how I did it. Because I forgot.</p>
+    </article>
+</div>
+
+
+        
+        
+        <nav role="navigation" class="flex-container bottom-menu">
+            
+<hr />
+
+
+<p>
+    
+        
+            <a href="/about">whois</a>
+        
+    
+    
+    
+        
+            &#183; 
+            <a href="/posts">posts</a>
+        
+            &#183; 
+            <a href="/releases">releases</a>
+        
+            &#183; 
+            <a href="/linux">linux</a>
+        
+    
+    
+    
+        &#183; 
+        <a href="/">
+            main</a>
+    
+</p>
+
+        </nav>
+        
+        
+    </main>
+    
+    <footer class="flex-container footer">
+        
+
+    </footer>
+    
+    
+</body>
+
+</html>

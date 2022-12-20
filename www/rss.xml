@@ -6,7 +6,30 @@
     <description>Recent content on Gwyninevere</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 20 Dec 2022 23:04:52 +0100</lastBuildDate><atom:link href="http://gwyninevere.com/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 21 Dec 2022 17:52:14 +0100</lastBuildDate><atom:link href="http://gwyninevere.com/rss.xml" rel="self" type="application/rss+xml" />
+      
+      <item>
+        <title>Honestly, Just Use Zsh</title>
+        <link>http://gwyninevere.com/posts/compsci/honestly-just-use-zsh/</link>
+        <pubDate>Wed, 21 Dec 2022 17:52:14 +0100</pubDate>
+        
+        <guid>http://gwyninevere.com/posts/compsci/honestly-just-use-zsh/</guid>
+        <description>&lt;p&gt;Honestly, Bash compared to Zsh was always a painful shell for me. At
+least after I went Zsh-team.&lt;/p&gt;</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>To Arch or to Gentoo, That Is the Question</title>
+        <link>http://gwyninevere.com/posts/compsci/to-arch-or-to-gentoo-that-is-the-question/</link>
+        <pubDate>Wed, 21 Dec 2022 17:36:36 +0100</pubDate>
+        
+        <guid>http://gwyninevere.com/posts/compsci/to-arch-or-to-gentoo-that-is-the-question/</guid>
+        <description>&lt;p&gt;The answer is neither. Just use Debian.&lt;/p&gt;</description>
+      </item>
+      
+    
       
       <item>
         <title>I Sometimes Feel Like a Hardstuck Plat</title>
@@ -15,6 +38,17 @@
         
         <guid>http://gwyninevere.com/posts/personal/i-sometimes-feel-like-a-hardstuck-plat/</guid>
         <description>&lt;p&gt;Great, I officially burned myself out.&lt;/p&gt;</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>Updating a Gentoo System Isn&#39;t Such a Big Deal...</title>
+        <link>http://gwyninevere.com/posts/compsci/updating-a-gentoo-system-isnt-such-a-big-deal/</link>
+        <pubDate>Tue, 20 Dec 2022 17:14:47 +0100</pubDate>
+        
+        <guid>http://gwyninevere.com/posts/compsci/updating-a-gentoo-system-isnt-such-a-big-deal/</guid>
+        <description>&lt;p&gt;So here&amp;rsquo;s how you could update your gentoo system.&lt;/p&gt;</description>
       </item>
       
     
