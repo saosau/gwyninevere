@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+
+
+
+    
+
+
+
+
+
+
+    
+    
+
+
+
+    
+    
+    
+
+
+
+
+
+<style>
+    html {
+      background:
+          linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+          url(/bg/compsci.jpg),
+          #111;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+</style>
+
+
+
+<head>
+    
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="Mostly about computers.">
+<title>
+    Difference Between POSIX Shell and Bash - Gwyninevere
+</title>
+
+
+<link rel="shortcut icon" href="/gwyninevere.ico">
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.min.3cf97dd48e47166c0e29435ddca5c65cf80f8c473b882e1c59c33d992626252f.css" integrity="sha256-PPl91I5HFmwOKUNd3KXGXPgPjEc7iC4cWcM9mSYmJS8=" crossorigin="anonymous" media="screen">
+
+
+
+
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Didact+Gothic">
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://gwyninevere.com/gwyn.png"/>
+
+<meta name="twitter:title" content="Difference Between POSIX Shell and Bash"/>
+<meta name="twitter:description" content="When writing a script, all that is told to people is to write
+#!/bin/bash on the first line. What&rsquo;s worse is when people start to
+think that #!/bin/sh and #!/bin/bash are interchangeable."/>
+
+<meta property="og:title" content="Difference Between POSIX Shell and Bash" />
+<meta property="og:description" content="When writing a script, all that is told to people is to write
+#!/bin/bash on the first line. What&rsquo;s worse is when people start to
+think that #!/bin/sh and #!/bin/bash are interchangeable." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://gwyninevere.com/posts/compsci/difference-between-posix-shell-and-bash/" /><meta property="og:image" content="http://gwyninevere.com/gwyn.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-12-20T14:43:35+01:00" />
+<meta property="article:modified_time" content="2022-12-20T14:43:35+01:00" /><meta property="og:site_name" content="Gwyninevere" />
+
+
+
+    
+
+    
+    
+    
+    <title>
+        
+        Difference Between POSIX Shell and Bash
+        
+    </title>
+</head>
+
+<body>
+    
+    
+    <header class="wrap flex-container">
+        <h1>Difference Between POSIX Shell and Bash</h1>
+    </header>
+    
+    <main class="wrap">
+        
+<div class="flex-container">
+    <aside role="complementary">
+        Tue Dec 20, 2022 &#183; 224 words
+    </aside>
+    <hr />
+    <article role="article">
+        <p>When writing a script, all that is told to people is to write
+<code>#!/bin/bash</code> on the first line. What&rsquo;s worse is when people start to
+think that <code>#!/bin/sh</code> and <code>#!/bin/bash</code> are interchangeable.</p>
+<h2 id="posix-compliance" class="anchor-link"><a href="#posix-compliance">POSIX compliance<span class="pilcrow">&nbsp;¶</span></a></h2>
+<p>So, I like to think of POSIX as a set of rules. You can be POSIX
+compliant in two ways: <em>Bash is POSIX compliant</em>, because it can run any
+script that complies to POSIX rules, and a <em>script is POSIX compliant</em> if
+it only has capabilities specified in POSIX rules.</p>
+<p>Arrays or double bracket test statements [[ condition ]] aren&rsquo;t POSIX. To
+check for illegal statements you can use <code>shellcheck</code> .</p>
+
+<h2 id="what-is-binsh" class="anchor-link"><a href="#what-is-binsh">What is #!/bin/sh<span class="pilcrow">&nbsp;¶</span></a></h2>
+<p>So, the /bin/sh, it&rsquo;s not really a shell, it&rsquo;s a link to any shell of
+your choice. So in your computer it might be Bash, on the other Dash,
+who knows.</p>
+<p>#! is what we call a shebang. When you call an executable like this:
+<code>./executable</code>, the exec function looks for the first 2 bytes: #!.
+If it hits it, it runs your text file with a program that comes after it.</p>
+<hr />
+
+<p>Thus, if you are writing a bash script, it can only be ran by Bash, so
+start your first line with #!/bin/bash. If you are trying to make your
+shell script work on other POSIX compliant shells, then you can start
+it with #!/bin/sh.</p>
+    </article>
+</div>
+
+
+        
+        
+        <nav role="navigation" class="flex-container bottom-menu">
+            
+<hr />
+
+
+<p>
+    
+        
+            <a href="/about">whois</a>
+        
+    
+    
+    
+        
+            &#183; 
+            <a href="/posts">posts</a>
+        
+            &#183; 
+            <a href="/releases">releases</a>
+        
+            &#183; 
+            <a href="/linux">linux</a>
+        
+    
+    
+    
+        &#183; 
+        <a href="/">
+            main</a>
+    
+</p>
+
+        </nav>
+        
+        
+    </main>
+    
+    <footer class="flex-container footer">
+        
+
+    </footer>
+    
+    
+</body>
+
+</html>

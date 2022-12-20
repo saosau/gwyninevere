@@ -20,6 +20,19 @@
     
       
       <item>
+        <title>Difference Between POSIX Shell and Bash</title>
+        <link>http://gwyninevere.com/posts/compsci/difference-between-posix-shell-and-bash/</link>
+        <pubDate>Tue, 20 Dec 2022 14:43:35 +0100</pubDate>
+        
+        <guid>http://gwyninevere.com/posts/compsci/difference-between-posix-shell-and-bash/</guid>
+        <description>&lt;p&gt;When writing a script, all that is told to people is to write
+&lt;code&gt;#!/bin/bash&lt;/code&gt; on the first line. What&amp;rsquo;s worse is when people start to
+think that &lt;code&gt;#!/bin/sh&lt;/code&gt; and &lt;code&gt;#!/bin/bash&lt;/code&gt; are interchangeable.&lt;/p&gt;</description>
+      </item>
+      
+    
+      
+      <item>
         <title>Actually using dwm/st, I use dwm/st btw</title>
         <link>http://gwyninevere.com/posts/compsci/actually-using-dwm-st-i-use-dwm-st-btw/</link>
         <pubDate>Mon, 19 Dec 2022 22:01:55 +0100</pubDate>

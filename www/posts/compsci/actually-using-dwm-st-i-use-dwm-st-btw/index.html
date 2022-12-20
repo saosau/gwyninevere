@@ -116,39 +116,34 @@ you don&rsquo;t have sudo." />
         
 <div class="flex-container">
     <aside role="complementary">
-        Mon Dec 19, 2022 &#183; 203 words
+        Mon Dec 19, 2022 &#183; 195 words
     </aside>
     <hr />
     <article role="article">
         <p>Installing dwm and st is really, really easy. Maybe a bit harder, when
 you don&rsquo;t have sudo.</p>
-<p>Well, well, well you are now a dwm user, how pityful.</p>
-<p>Now, where&rsquo;s your wallpaper?</p>
+<p>The post was really chaotic, so I&rsquo;m going to rewrite it to be simple.
+A tiling window manager is a GUI, that tiles windows in a specific way.
+You can have them:</p>
 <ul>
-<li>dwm-fehbg - I suggest using feh as it&rsquo;s lightweight and written in C.</li>
+<li>tiled (side by side),</li>
+<li>floating (just like in Windows),</li>
+<li>monocle (all of them maximized, stacked).</li>
 </ul>
-<p>How are you going to know what time is it?</p>
-<ul>
-<li>dwm-xsetroot - All it is, is a simple shell script.</li>
-</ul>
-<p>Oh, isn&rsquo;t it too dark for you? Ah wait, the sun is up.</p>
-<ul>
-<li>dwm-backlight - Simple cat, gives a new value for brightness degree.</li>
-</ul>
-<p>Wait, how are you going to send me a screenshot? On Windows I just need
-to press Super + Shift + S btw. (smug)</p>
-<ul>
-<li>dwm-screenshot - Well, I can use the image capture application of my
-choice, and I have it bound to whatever.</li>
-</ul>
-<p>Hahaha, Linux has 0 support. I literally can&rsquo;t hear anything from your
-desktop on our skype call when you are streaming.</p>
-<ul>
-<li>dwm-stream - You know that I can reroute my audio to my mic, right?
-And I can choose which apps I want, so you won&rsquo;t hear yourself echo back.</li>
-</ul>
-<p>Wait, really, is that it? Was that all I needed for my computer? How
-is dwm only 66KB in size?</p>
+<p>What is scary is that, that&rsquo;s totally enough. So there is this code in
+C that provides just that. Your leader key is the &lsquo;alt&rsquo; key (I mean, you
+can choose any other), and with
+<a href="https://dwm.suckless.org/tutorial">specific shortcuts</a>
+you can do just anything without the use of mouse.</p>
+
+<h2 id="whats-missing" class="anchor-link"><a href="#whats-missing">What&rsquo;s missing<span class="pilcrow">&nbsp;¶</span></a></h2>
+<p>That&rsquo;s right. It doesn&rsquo;t provide you <em>everything</em>, but it&rsquo;s really a
+good thing, was it really its job to provide you anything else then
+tiling windows? All we need to do is supply the rest ourselves.</p>
+<p>There&rsquo;s no: wallpaper, battery and time status, brightness adjustment,
+screenshotting. If you are in for it, all you need to do is figure out
+which apps you&rsquo;d like to provide you this functionality. Of course,
+in case you are lost, my repo is there for reference.</p>
     </article>
 </div>
 
