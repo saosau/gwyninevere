@@ -3,49 +3,10 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://gwyninevere.com/</loc>
-    <lastmod>2022-12-21T17:52:14+01:00</lastmod>
-  </url><url>
-    <loc>http://gwyninevere.com/posts/compsci/honestly-just-use-zsh/</loc>
-    <lastmod>2022-12-21T17:52:14+01:00</lastmod>
-  </url><url>
-    <loc>http://gwyninevere.com/posts/compsci/to-arch-or-to-gentoo-that-is-the-question/</loc>
-    <lastmod>2022-12-21T17:36:36+01:00</lastmod>
-  </url><url>
-    <loc>http://gwyninevere.com/posts/personal/i-sometimes-feel-like-a-hardstuck-plat/</loc>
-    <lastmod>2022-12-20T23:04:52+01:00</lastmod>
-  </url><url>
-    <loc>http://gwyninevere.com/posts/compsci/updating-a-gentoo-system-isnt-such-a-big-deal/</loc>
-    <lastmod>2022-12-20T17:14:47+01:00</lastmod>
-  </url><url>
-    <loc>http://gwyninevere.com/posts/compsci/difference-between-posix-shell-and-bash/</loc>
-    <lastmod>2022-12-20T14:43:35+01:00</lastmod>
-  </url><url>
-    <loc>http://gwyninevere.com/posts/compsci/actually-using-dwm-st-i-use-dwm-st-btw/</loc>
-    <lastmod>2022-12-19T22:01:55+01:00</lastmod>
-  </url><url>
-    <loc>http://gwyninevere.com/posts/personal/</loc>
-    <lastmod>2022-12-18T23:01:28+01:00</lastmod>
+    <lastmod>2022-12-18T22:50:49+01:00</lastmod>
   </url><url>
     <loc>http://gwyninevere.com/terms/</loc>
     <lastmod>2022-12-18T22:50:49+01:00</lastmod>
-  </url><url>
-    <loc>http://gwyninevere.com/posts/compsci/improving-shell-syntax-of-git-with-fzf/</loc>
-    <lastmod>2022-12-18T20:12:49+01:00</lastmod>
-  </url><url>
-    <loc>http://gwyninevere.com/posts/compsci/shell-file-manager/</loc>
-    <lastmod>2022-12-17T20:38:33+01:00</lastmod>
-  </url><url>
-    <loc>http://gwyninevere.com/releases/saos-school/second-concurrent-programming-project/</loc>
-    <lastmod>2022-12-16T19:51:26+01:00</lastmod>
-  </url><url>
-    <loc>http://gwyninevere.com/posts/compsci/organize-your-git-repositories/</loc>
-    <lastmod>2022-12-16T00:16:57+01:00</lastmod>
-  </url><url>
-    <loc>http://gwyninevere.com/releases/saos-config/shell-scripts/</loc>
-    <lastmod>2022-12-15T19:47:30+01:00</lastmod>
-  </url><url>
-    <loc>http://gwyninevere.com/posts/compsci/if-your-school-runs-computers-on-linux/</loc>
-    <lastmod>2022-12-14T22:57:21+01:00</lastmod>
   </url><url>
     <loc>http://gwyninevere.com/linux/git/</loc>
     <lastmod>2022-12-14T16:42:19+00:00</lastmod>
@@ -66,12 +27,6 @@
     <lastmod>2022-07-31T18:12:18+00:00</lastmod>
   </url><url>
     <loc>http://gwyninevere.com/releases/</loc>
-    <lastmod>2022-07-31T18:12:18+00:00</lastmod>
-  </url><url>
-    <loc>http://gwyninevere.com/releases/saos-config/</loc>
-    <lastmod>2022-07-31T18:12:18+00:00</lastmod>
-  </url><url>
-    <loc>http://gwyninevere.com/releases/saos-school/</loc>
     <lastmod>2022-07-31T18:12:18+00:00</lastmod>
   </url><url>
     <loc>http://gwyninevere.com/about/</loc>
